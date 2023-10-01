@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -52,7 +50,8 @@
 </head>
 <body>
     <div class="container">
-        <img src="{% static 'img/predio.jpeg' %}" alt="" id="lockIcon">
+        <img src="/static/login/img/predio.jpeg" alt="" id="lockIcon">
+
         <h2></h2>
         <div class="button-container">
             <button id="loginButton">Login</button>
@@ -61,7 +60,7 @@
     </div>
     <script>
         document.getElementById("loginButton").addEventListener("click", function() {
-            window.location.href = "/login/";
+            window.location.href = "/pagina_de_login/";
         });
     </script>
     <script>
