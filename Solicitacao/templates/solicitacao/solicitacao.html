@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitações aos Funcionários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label, select, textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Solicitações aos Funcionários</h2>
+        <form action="#" method="post">
+            <label for="local">Local:</label>
+            <select id="local" name="local">
+                <option value="academia">Academia</option>
+                <option value="campo_futebol">Campo de Futebol</option>
+                <option value="quadra_tenis">Quadra de Tênis</option>
+                <option value="espaco_gourmet">Espaço Gourmet</option>
+                <option value="salao_festas">Salão de Festas</option>
+            </select>
+
+            <label for="tipo_servico">Tipo de Serviço:</label>
+            <select id="tipo_servico" name="tipo_servico">
+                <option value="manutencao">Manutenção</option>
+                <option value="limpeza">Limpeza</option>
+            </select>
+
+            <label for="comentario">Comentário:</label>
+            <textarea id="comentario" name="comentario" rows="4"></textarea>
+
+            <button type="submit">Enviar Solicitação</button>
+        </form>
+    </div>
+    <script>
+        document.querySelector("button[type='submit']").addEventListener("click", function(event) {
+            // Previne o envio do formulário
+            event.preventDefault();
+    
+            // Exibe o pop-up com título e mensagem
+            if (window.confirm("Notificação\n\nSolicitação encaminhada")) {
+                // Resetar o formulário
+                event.target.form.reset();
+            }
+        });
+    </script>
+    </body>
+    </html>

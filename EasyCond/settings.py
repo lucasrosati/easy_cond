@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     "Login",
     "Cobranca",
     "Agendamento",
+    "Menu_Inicial",
+    "Solicitacao",
+    #Adicionar Reservas
 ]
 
 MIDDLEWARE = [
