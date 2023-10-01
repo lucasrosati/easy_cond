@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from Login import views as login_views
-from Cobranca import views as cobranca_views
-from Agendamento import views as agendamento_views
+#from Cobranca import views as cobranca_views #descontinuado 
+#from Agendamento import views as agendamento_views #alterado para Reserva
 from Menu_Inicial import views as menu_views
 from Solicitacao import views as solicitacao_views
+from Reserva import views as reserva_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,16 +30,14 @@ urlpatterns = [
     path('login/', login_views.login_view, name='login'),
     path('cadastro/', login_views.cadastro_view, name='cadastro'),
     path('pagina_de_cadastro/', login_views.pagina_de_cadastro_view, name='pagina_de_cadastro'),
-
     #Telas do Menu_Inicial
     path('menu/', menu_views.menu_view, name='menu'),
-
     #Telas da Solicitação
     path('solicitacao/', solicitacao_views.solicitacao_view, name='solicitacao'),
-    # Adicione outras URLs conforme necessário, usando os aliases corretos
-    # Por exemplo:
-    # path('alguma_url/', cobranca_views.nome_da_view, name='nome_da_url'),
-    # path('outra_url/', agendamento_views.nome_da_view, name='nome_da_url_2'),
+    #Telas Reserva
+    path('reserva/', reserva_views.reserva_view, name='reserva'),
+    path('calendario/', reserva_views.calendario_view, name='calendario'),
+    path('legenda/', reserva_views.legenda_view, name='legenda'),    
 ]
 
 # ... outras configurações de URL ...

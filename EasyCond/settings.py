@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "Agendamento",
     "Menu_Inicial",
     "Solicitacao",
-    #Adicionar Reservas
+    "Reserva",
 ]
 
 MIDDLEWARE = [
