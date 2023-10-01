@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva de Área Comum</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'reserva/style.css' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,13 +66,13 @@
         document.getElementById("reservarButton").addEventListener("click", function() {
             var areaSelecionada = document.getElementById("areaComum").value;
             if (areaSelecionada === "salaoFestas") {
-                window.location.href = "calendario.html";
+                window.location.href = "/calendario/";  // Usar uma URL absoluta
             } else if (areaSelecionada === "campoFutebol") {
-                window.location.href = "calendario.html";
+                window.location.href = "/calendario/";  // Usar uma URL absoluta
             } else if (areaSelecionada === "espacoGourmet") {
-                window.location.href = "calendario.html";
+                window.location.href = "/calendario/";  // Usar uma URL absoluta
             } else if (areaSelecionada === "quadraTenis") {
-                window.location.href = "calendario.html";
+                window.location.href = "/calendario/";  // Usar uma URL absoluta
             }
         });
     </script>

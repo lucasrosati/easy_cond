@@ -7,4 +7,4 @@ def legenda_view(request):
     return render(request, 'Reserva/legenda.html')
 
 def calendario_view(request):
-    return render(request, 'Reserva/calndario.html')
+    return render(request, 'Reserva/calendario.html')
