@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def login_view(request):
+def pagina_de_login_view(request):
     return render(request, 'login/Pagina_de_login.html')
 
 def cadastro_view(request):

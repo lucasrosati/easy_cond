@@ -27,9 +27,10 @@ from Reserva import views as reserva_views
 urlpatterns = [
     path("admin/", admin.site.urls),
     # Telas do Login
-    path('login/', login_views.login_view, name='login'),
+    path('pagina_de_login/', login_views.pagina_de_login_view, name='pagina_de_login'),
     path('cadastro/', login_views.cadastro_view, name='cadastro'),
     path('pagina_de_cadastro/', login_views.pagina_de_cadastro_view, name='pagina_de_cadastro'),
+
     #Telas do Menu_Inicial
     path('menu/', menu_views.menu_view, name='menu'),
     #Telas da Solicitação
