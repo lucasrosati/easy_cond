@@ -27,11 +27,10 @@ NOT_PROD = not TARGET_ENV.lower().startswith('prod')
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = True
+    DEBUG = False
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'A SECRET KEY DO SEU PROJETO'
-    ALLOWED_HOSTS = ['easycond.azurewebsites.net']
-
+    ALLOWED_HOSTS = ['https://easycond.azurewebsites.net/']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
