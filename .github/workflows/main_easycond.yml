@@ -28,15 +28,16 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-            run: pip install -r easy_cond/requirements.txt
+        run: pip install -r easy_cond/requirements.txt
+
 
       - name: Cleaning testing files
-              run: |
-                cd easy_cond/
-                rm db.sqlite3
-                rm .env
-                cd ..
-            
+        run: |
+          cd easy_cond/
+          rm db.sqlite3
+          rm .env
+          cd ..
+
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
