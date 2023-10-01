@@ -10,6 +10,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            position: relative; /* Adicionado para posicionar o botão de retorno */
         }
         .container {
             max-width: 600px;
@@ -46,6 +47,11 @@
         button:hover {
             background-color: #0056b3;
         }
+        .return-button {
+            position: fixed; /* Posicionamento fixo */
+            bottom: 10px; /* 10px do fundo */
+            right: 10px; /* 10px da direita */
+        }
     </style>
 </head>
 <body>
@@ -61,7 +67,9 @@
         </div>
         <button id="reservarButton">Reservar</button>
     </div>
-
+    <a href="{% url 'menu' %}" class="return-button">
+        <button>Retornar ao Menu</button>
+    </a>
     <script>
         document.getElementById("reservarButton").addEventListener("click", function() {
             var areaSelecionada = document.getElementById("areaComum").value;

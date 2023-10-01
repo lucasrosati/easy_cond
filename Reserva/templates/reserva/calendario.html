@@ -13,6 +13,7 @@
         body {
             background-color: #fff; /* Cor de fundo preta para o site todo */
             color: #A52A2A; /* Cor do texto branca para o site todo */
+            position: relative; /* Adicionado para posicionar o botão de retorno */
         }
     
         /* Estilos para a legenda */
@@ -38,8 +39,24 @@
             margin-right: 10px;
             align-items: center;
         }
+
+        /* Estilos para o botão de retorno */
+        .return-button {
+            position: fixed; /* Posicionamento fixo */
+            bottom: 10px; /* 10px do fundo */
+            right: 10px; /* 10px da direita */
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none; /* Remover sublinhado do link */
+        }
+        .return-button:hover {
+            background-color: #0056b3;
+        }
     </style>
-    
 </head>
 <body>
     <div class="wrapper">
@@ -76,8 +93,7 @@
               <span>Data Indisponível</span>
           </div>
       </div>
-      
-        </div>
     </div>
+    <a href="{% url 'menu' %}" class="return-button">Retornar ao Menu</a>
 </body>
 </html>
