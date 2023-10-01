@@ -69,7 +69,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="{% static 'img/usericon.jpeg' %}" alt="Ícone de Usuário" id="userIcon">
+        <img src="/static/login/img/usericon.jpeg" alt="Ícone de Usuário" id="userIcon">
         <h2>Cadastro</h2>
         <form action="{URL_DA_VIEW_DJANGO}" method="POST">
             <!--{% csrf_token %}-->
@@ -105,17 +105,18 @@
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector("form");
             const successNotification = document.querySelector("#successNotification");
-
+    
             form.addEventListener("submit", function(event) {
                 event.preventDefault();
                 // Simule um redirecionamento após 2 segundos
                 setTimeout(function() {
-                    window.location.href = "cadastro.html";
+                    window.location.href = "/cadastro"; // Adicione a barra inicial para indicar a URL raiz
                 }, 2000);
-
+    
                 successNotification.style.display = "block";
             });
         });
     </script>
+    
 </body>
 </html>
