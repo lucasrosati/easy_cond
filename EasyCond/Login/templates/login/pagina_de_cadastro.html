@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #userIcon {
+        max-width: 50px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .success-notification {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: none;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'img/usericon.jpeg' %}" alt="Ícone de Usuário" id="userIcon">
+        <h2>Cadastro</h2>
+        <form action="{URL_DA_VIEW_DJANGO}" method="POST">
+            <!--{% csrf_token %}-->
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="nome">Nome de usuário:</label>
+                <input type="text" id="username" name="user" required>
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required>
+            </div>
+            <div class="form-group">
+                <label for="apartamento">Apartamento:</label>
+                <input type="text" id="apartamento" name="apartamento" required>
+            </div>
+            <div class="form-group">
+                <label for="tipoUsuario">Tipo de Usuário:</label>
+                <select id="tipoUsuario" name="tipoUsuario" required>
+                    <option value="MORADOR">Morador</option>
+                    <option value="FUNCIONÁRIO">Funcionário</option>
+                </select>
+            </div>
+            <button type="submit">Cadastrar-se</button>
+        </form>
+    </div>
+    <div class="success-notification" id="successNotification">Cadastro concluído com sucesso!</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            const successNotification = document.querySelector("#successNotification");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                // Simule um redirecionamento após 2 segundos
+                setTimeout(function() {
+                    window.location.href = "cadastro.html";
+                }, 2000);
+
+                successNotification.style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
