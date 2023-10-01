@@ -41,6 +41,11 @@
         button:hover {
             background-color: #0056b3;
         }
+        .logout-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -50,7 +55,9 @@
             <a href="{% url 'solicitacao' %}">
                 <button>Solicitação de Serviços</button>
             </a>
-            <button>Funcionalidade 2</button>
+            <a href="{% url 'reserva' %}"> <!-- Link para a tela de reserva -->
+                <button>Reserva de Espaço Comum</button>
+            </a>
             <button>Funcionalidade 3</button>
             <button>Funcionalidade 4</button>
             <button>Funcionalidade 5</button>
@@ -60,6 +67,9 @@
             <button>Funcionalidade 9</button>
             <button>Funcionalidade 10</button>
         </div>
+        <a href="{% url 'cadastro' %}" class="logout-button">
+            <button>Logout</button>
+        </a>
     </div>
 </body>
 </html>
