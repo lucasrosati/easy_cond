@@ -23,13 +23,12 @@ from Login import views as login_views
 from Menu_Inicial import views as menu_views
 from Solicitacao import views as solicitacao_views
 from Reserva import views as reserva_views
-from . import views
 
 urlpatterns = [
     #Admmin
     path("admin/", admin.site.urls),
     #Tela Inicial
-    path('', login_views.cadastro_view, name='pagina_inicial'),
+    path('', login_views.pagina_inicial, name='pagina_inicial'),
     # Telas do Login
     path('pagina_de_login/', login_views.pagina_de_login_view, name='pagina_de_login'),
     path('cadastro/', login_views.cadastro_view, name='cadastro'),
