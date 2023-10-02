@@ -10,3 +10,6 @@ def cadastro_view(request):
 
 def pagina_de_cadastro_view(request):
     return render(request, 'login/Pagina_de_cadastro.html')
+
+def pagina_inicial(request):
+    return render(request, 'cadastro.html')
