@@ -21,7 +21,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'  # Certifique-se de que a versão seja compatível com seu projeto Django.
+          python-version: '3.11'  # Certifique-se de que a versão seja compatível com seu projeto Django.
 
       - name: Create and start virtual environment
         run: |
@@ -33,8 +33,7 @@ jobs:
 
       - name: Cleaning testing files
         run: |
-          cd EasyCond/
-          rm db.sqlite3
+          cd easy_cond/
           rm .env
           cd ..
 
