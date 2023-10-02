@@ -29,7 +29,7 @@ urlpatterns = [
     #Admmin
     path("admin/", admin.site.urls),
     #Tela Inicial
-    path('', views.pagina_inicial, name='pagina_inicial'),
+    path('', login_views.cadastro_view, name='pagina_inicial'),
     # Telas do Login
     path('pagina_de_login/', login_views.pagina_de_login_view, name='pagina_de_login'),
     path('cadastro/', login_views.cadastro_view, name='cadastro'),
