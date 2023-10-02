@@ -30,7 +30,7 @@ if NOT_PROD:
     DEBUG = False
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'A SECRET KEY DO SEU PROJETO'
-    ALLOWED_HOSTS = ['easycond.azurewebsites.net']
+    ALLOWED_HOSTS = ['easycond.azurewebsites.net','*']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -40,7 +40,7 @@ if NOT_PROD:
 else:
     SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
-    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
+    ALLOWED_HOSTS = ['easycond.azurewebsites.net','*']
     CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
 
     SECURE_SSL_REDIRECT = \
