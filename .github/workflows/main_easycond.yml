@@ -1,7 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
-
 name: Build and deploy Python app to Azure Web App - EasyCond
 
 on:
@@ -21,7 +17,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v2
         with:
-          python-version: '3.11'  # Certifique-se de que a versão seja compatível com seu projeto Django.
+          python-version: '3.8'  # Certifique-se de que a versão seja compatível com seu projeto Django.
 
       - name: Create and start virtual environment
         run: |
@@ -33,7 +29,7 @@ jobs:
 
       - name: Cleaning testing files
         run: |
-          cd easy_cond/
+          cd EasyCond/
           rm .env
           cd ..
 
@@ -63,5 +59,4 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'EasyCond'  # Nome correto do seu aplicativo na Azure.
-          slot-name: 'Production'  # Nome correto do seu slot, se aplicável.
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_03CB21F38F9E4B2D96106B86A2FED13B }}  # Nome correto do seu segredo de chave de publicação.
