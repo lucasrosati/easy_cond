@@ -27,10 +27,10 @@ NOT_PROD = not TARGET_ENV.lower().startswith('prod')
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = False
+    DEBUG = True
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = 'A SECRET KEY DO SEU PROJETO'
-    ALLOWED_HOSTS = ['easycond.azurewebsites.net','*']
+    SECRET_KEY = 'A SECRET KEY DO SEU PROJETO' #Testar colocar a secret key aqui
+    ALLOWED_HOSTS = []
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -40,7 +40,7 @@ if NOT_PROD:
 else:
     SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
-    ALLOWED_HOSTS = ['easycond.azurewebsites.net','*']
+    ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
     CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
 
     SECURE_SSL_REDIRECT = \
@@ -155,7 +155,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),] Teste monitoria
 #STATIC_URL = "static/"
 STATIC_URL = os.environ.get('DJANGO_STATIC_URL', "/static/")
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
