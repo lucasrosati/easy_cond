@@ -15,12 +15,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Set up Python version
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.11'
+          python-version: '3.8'  # Certifique-se de que a versão seja compatível com seu projeto Django.
 
       - name: Create and start virtual environment
         run: |
@@ -28,8 +29,7 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r EasyCond/requirements.txt
-
+        run: pip install -r EasyCond/requirements.txt  # Verifique o caminho para o requirements.txt.
 
       - name: Cleaning testing files
         run: |
@@ -38,16 +38,13 @@ jobs:
           rm .env
           cd ..
 
-        
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
           path: |
             EasyCond
-            !venv/
+            !venv/  # Exclui o ambiente virtual.
 
   deploy:
     runs-on: ubuntu-latest
@@ -65,8 +62,7 @@ jobs:
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
         with:
-          app-name: 'EasyCond'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_03CB21F38F9E4B2D96106B86A2FED13B }}
+          app-name: 'EasyCond'  # Nome correto do seu aplicativo na Azure.
+          slot-name: 'Production'  # Nome correto do seu slot, se aplicável.
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_03CB21F38F9E4B2D96106B86A2FED13B }}  # Nome correto do seu segredo de chave de publicação.
