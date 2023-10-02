@@ -33,11 +33,9 @@ jobs:
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Cleaning testing files
-        run: |
-          cd easy_cond/
+        run: |         
           rm db.sqlite3
-          rm .env
-          cd ..
+          rm .env          
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
