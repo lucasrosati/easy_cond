@@ -74,8 +74,7 @@
         <div class="form-container">
             <img src="/static/login/img/login.jpeg" alt="" id="login">
             <h2></h2>
-            <form action="{% url 'menu' %}" method="POST">
-                {% csrf_token %}
+            <form action="/menu/" method="GET">                
                 <div class="form-group">
                     <label for="username">Nome:</label>
                     <input type="text" id="username" name="username" required>
