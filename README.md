@@ -40,10 +40,14 @@ O EasyCond é uma solução inovadora para administração condominial, projetad
 
 
 <a href="https://drive.google.com/drive/folders/1YW50v_ZE_zf8y9YxYuIHKkrgh4AtJnsr?usp=drive_link">Diagrama de Atividades</a><br>
-<a href="https://drive.google.com/file/d/15ckxXiV7-u5cxcctDIp5-lEvFXuInrWI/view?usp=drive_link">Issues/Bug #1</a>
-<a href="https://drive.google.com/file/d/1SE_3s2HddqdwVc5nxDV9pzRhwT9L2YWO/view?usp=drive_link">Issues/Bug #2</a>
-<a href="https://drive.google.com/file/d/1mfGvW6mcz9c15D8U9Luypswn9Rz7LRHI/view?usp=drive_link">Issues/Bug #3</a>
-<a href="https://www.loom.com/share/f45acc0caac345828214401db4835232?sid=74d9ecae-059f-4057-8e36-d967400fa3ad">Deployment das histórias em produção</a>
+<a href="https://drive.google.com/file/d/15ckxXiV7-u5cxcctDIp5-lEvFXuInrWI/view?usp=drive_link">Issues/Bug #1</a><br>
+
+<a href="https://drive.google.com/file/d/1SE_3s2HddqdwVc5nxDV9pzRhwT9L2YWO/view?usp=drive_link">Issues/Bug #2</a><br>
+
+<a href="https://drive.google.com/file/d/1mfGvW6mcz9c15D8U9Luypswn9Rz7LRHI/view?usp=drive_link">Issues/Bug #3</a><br>
+
+<a href="https://www.loom.com/share/f45acc0caac345828214401db4835232?sid=74d9ecae-059f-4057-8e36-d967400fa3ad">Deployment das histórias em produção</a><br>
+
 <a href="https://docs.google.com/document/d/1JDJtZnzNyHPZaZP09Ilkur22IItlhAwxTr6Z3hMQxmk/edit?usp=sharing">Quadro do 2° Sprint</a><br>
 <a href="https://docs.google.com/document/d/1XzwrVShiVB3Kfcz932qQTVFRNU7MG2H4IT5FI1T2JB8/edit?usp=sharing">Programação em Par experimentada e usado</a><br>
 
