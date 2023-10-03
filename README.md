@@ -28,6 +28,22 @@ O EasyCond é uma solução inovadora para administração condominial, projetad
 </div>
 
 
+## Instruções de como montar o ambiente
+
+Instruções de como montar o ambiente
+Para contribuir com nosso projeto é simples! Você vai precisar apenas de:
+1) Ter o python instalado em seu computador
+2) Uma IDE de sua escolha (recomendamos o VS code)
+3) Alguma ferramenta de versionamento (recomendamos o git bash)
+4) Faça um clone de nosso repositorio usando "git clone https://github.com/lucasrosati/easy_cond.git"
+5) Com o VScode abra o projeto
+6) Digite o comando "python -m venv venv" no terminal (Ctrl + ') para criar seu ambiente virtual ele será importante para instalarmos todas as dependências necessárias para o     
+   projeto
+7) Repare que foi criada uma pasta chamada venv no seu diretorio
+8) Ative seu ambiente virtual com o comando ./venv/Scripts/Activate
+9) Agora vamos instalar todas as dependências com o comando "pip install -r projeto_easy_cond/requirements.txt"
+   Com isso seu ambiente estará pronto para começar a desenvolver com o django!
+
 ## Entrega 1
 
 
