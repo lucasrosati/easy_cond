@@ -62,7 +62,8 @@ Para contribuir com nosso projeto é simples! Você vai precisar apenas de:
 <a href="https://www.loom.com/share/f45acc0caac345828214401db4835232?sid=74d9ecae-059f-4057-8e36-d967400fa3ad">Screencast - Deployment das histórias em produção</a><br>
 <a href="https://docs.google.com/document/d/1JDJtZnzNyHPZaZP09Ilkur22IItlhAwxTr6Z3hMQxmk/edit?usp=sharing">Quadro do 2° Sprint</a><br>
 <a href="https://docs.google.com/document/d/1XzwrVShiVB3Kfcz932qQTVFRNU7MG2H4IT5FI1T2JB8/edit?usp=sharing">Programação em Par experimentada e usado</a><br>
-<a href="appeasycond.azurewebsites.net">Link da aplicação web na Azure</a><br>
+[Link da aplicação web](https://appeasycond.azurewebsites.net)
+
 
 
 
