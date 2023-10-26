@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denunciar Infração</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label, select, textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; 
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .return-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Denunciar Infração</h2>
+        <form action="#" method="post">
+            <label for="local">Local da Infração:</label>
+            <select id="local" name="local">
+                <option value="academia">Academia</option>
+                <option value="campo_futebol">Campo de Futebol</option>
+                <option value="quadra_tenis">Quadra de Tênis</option>
+                <option value="espaco_gourmet">Espaço Gourmet</option>
+                <option value="salao_festas">Salão de Festas</option>
+            </select>
+
+            <label for="tipo_infracao">Tipo de Infração:</label>
+            <select id="tipo_infracao" name="tipo_infracao">
+                <option value="barulho">Barulho Excessivo</option>
+                <option value="dano">Dano ao Patrimônio</option>
+                <option value="desrespeito">Desrespeito às Normas</option>
+                <option value="outro">Outro</option>
+            </select>
+
+            <label for="unidade">Unidade:</label>
+            <select id="unidade" name="unidade">
+                <option value="101">101</option>
+                <option value="102">102</option>
+                <option value="201">201</option>
+                <option value="202">202</option>    
+                <option value="desconhecido">Desconhecido</option>            
+            </select>
+
+            <label for="descricao">Descrição da Infração:</label>
+            <textarea id="descricao" name="descricao" rows="4"></textarea>
+
+            <button type="submit">Enviar Denúncia</button>
+        </form>
+    </div>
+    <a href="/menu/" class="return-button">
+        <button>Retornar ao Menu</button>
+    </a>
+    <script>
+        document.querySelector("button[type='submit']").addEventListener("click", function(event) {
+            event.preventDefault();
+    
+            if (window.confirm("Notificação\n\nDenúncia encaminhada")) {
+                event.target.form.reset();
+            }
+        });
+    </script>
+</body>
+</html>

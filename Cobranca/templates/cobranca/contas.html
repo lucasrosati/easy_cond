@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Cobrança</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .sort-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+
+        .sort-arrows {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 0;
+        }
+
+        .sort-arrow.up {
+            color: #000;
+        }
+
+        .sort-arrow.down {
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Tabela de Cobrança</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data<button class="sort-btn" onclick="sortTable(0)"><span class="sort-arrows"><span 
+                        class="sort-arrow up" id="arrowUp0">&uarr;</span><span class="sort-arrow down" id="arrowDown0">&darr;</span></span></button></th>
+                    <th>Conta<button class="sort-btn" onclick="sortTable(1)"><span class="sort-arrows"><span 
+                        class="sort-arrow up" id="arrowUp1">&uarr;</span><span class="sort-arrow down" id="arrowDown1">&darr;</span></span></button></th>
+                    <th>Valor<button class="sort-btn" onclick="sortTable(2)"><span class="sort-arrows"><span 
+                        class="sort-arrow up" id="arrowUp2">&uarr;</span><span class="sort-arrow down" id="arrowDown2">&darr;</span></span></button></th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>01/09/2023</td><td>Condomínio</td><td>R$ 2.001,00</td><td><a href="#">Link</a></td></tr>
+                <tr><td>02/09/2023</td><td>Água</td><td>R$ 100,00</td><td><a href="#">Link</a></td></tr>
+                <tr><td>03/09/2023</td><td>Luz</td><td>R$ 150,00</td><td><a href="#">Link</a></td></tr>
+                <tr><td>04/09/2023</td><td>Internet</td><td>R$ 99,99</td><td><a href="#">Link</a></td></tr>
+                <tr><td>05/09/2023</td><td>Telefone</td><td>R$ 50,00</td><td><a href="#">Link</a></td></tr>
+                <tr><td>06/09/2023</td><td>Aluguel</td><td>R$ 1.200,00</td><td><a href="#">Link</a></td></tr>
+                <tr><td>07/09/2023</td><td>Cartão de Crédito</td><td>R$ 500,00</td><td><a href="#">Link</a></td></tr>
+                <tr><td>08/09/2023</td><td>Seguro do Carro</td><td>R$ 250,00</td><td><a href="#">Link</a></td></tr>
+                <tr><td>09/09/2023</td><td>Gasolina</td><td>R$ 300,00</td><td><a href="#">Link</a></td></tr>
+                <tr><td>10/09/2023</td><td>Academia</td><td>R$ 80,00</td><td><a href="#">Link</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var currentDir = {
+            0: "asc",
+            1: "asc",
+            2: "asc"
+        };
+
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch;
+            table = document.querySelector("table");
+            switching = true;
+
+            // Determinar a direção da ordenação (ascendente ou descendente)
+            var dir = currentDir[n];
+            currentDir[n] = dir === "asc" ? "desc" : "asc";
+
+            // Atualizar as setas
+            var arrowUp = document.getElementById("arrowUp" + n);
+            var arrowDown = document.getElementById("arrowDown" + n);
+            
+            if (dir === "asc") {
+                arrowUp.style.color = "#ccc";
+                arrowDown.style.color = "#000";
+            } else {
+                arrowUp.style.color = "#000";
+                arrowDown.style.color = "#ccc";
+            }
+
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+
+                    if ((dir === "asc" && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) ||
+                        (dir === "desc" && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
