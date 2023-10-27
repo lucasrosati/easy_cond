@@ -64,22 +64,21 @@
         margin-top: 10px;
         display: none;
     }
-
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="/static/login/img/usericon.jpeg" alt="Ícone de Usuário" id="userIcon">
+        <img src="{% static 'login/img/usericon.jpeg' %}" alt="Ícone de Usuário" id="userIcon">
         <h2>Cadastro</h2>
-        <form action="{URL_DA_VIEW_DJANGO}" method="POST">
-            <!--{% csrf_token %}-->
+        <form action="" method="POST" id="cadastroForm" onsubmit="enviarDados()">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
             </div>
             <div class="form-group">
-                <label for="nome">Nome de usuário:</label>
-                <input type="text" id="username" name="user" required>
+                <label for="nome_usuario">Nome de usuário:</label>
+                <input type="text" id="nome_usuario" name="nome_usuario" required>
             </div>
             <div class="form-group">
                 <label for="senha">Senha:</label>
@@ -90,8 +89,8 @@
                 <input type="text" id="apartamento" name="apartamento" required>
             </div>
             <div class="form-group">
-                <label for="tipoUsuario">Tipo de Usuário:</label>
-                <select id="tipoUsuario" name="tipoUsuario" required>
+                <label for="tipo_usuario">Tipo de Usuário:</label>
+                <select id="tipo_usuario" name="tipo_usuario" required>
                     <option value="MORADOR">Morador</option>
                     <option value="FUNCIONÁRIO">Funcionário</option>
                 </select>
@@ -102,21 +101,27 @@
     <div class="success-notification" id="successNotification">Cadastro concluído com sucesso!</div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector("form");
-            const successNotification = document.querySelector("#successNotification");
-    
-            form.addEventListener("submit", function(event) {
-                event.preventDefault();
-                // Simule um redirecionamento após 2 segundos
-                setTimeout(function() {
-                    window.location.href = "/cadastro"; // Adicione a barra inicial para indicar a URL raiz
-                }, 2000);
-    
-                successNotification.style.display = "block";
-            });
+        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            enviarDados();
         });
+
+        function enviarDados() {
+            const formulario = document.getElementById('cadastroForm');
+            const formData = new FormData(formulario);
+            fetch('/pagina_de_cadastro/', { 
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json()) 
+            .then(data => {
+                console.log("Dados salvos com sucesso", data);
+                window.location.href = '/cadastro/'; 
+            })
+            .catch(error => {
+                console.error("Erro ao salvar os dados", error);
+            });
+        }
     </script>
-    
 </body>
 </html>

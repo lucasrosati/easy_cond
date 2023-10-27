@@ -27,17 +27,17 @@ NOT_PROD = not TARGET_ENV.lower().startswith('prod')
 
 if NOT_PROD:
     # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = False
+    DEBUG = True
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'A SECRET KEY DO SEU PROJETO' #Testar colocar a secret key aqui
-    ALLOWED_HOSTS = ['appeasycond.azurewebsites.net']
+    ALLOWED_HOSTS = ['appeasycond.azurewebsites.net', '*']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.environ.get('DBNAME'),
             'HOST': os.environ.get('DBHOST'),
             'USER': os.environ.get('DBUSER'),
-            'PASSWORD': os.environ.get('DBPASS'),
+            'PASSWORD': os.environ.get('DBPASSWORD'),
             'OPTIONS': {'sslmode': 'require'},
         }
     }
@@ -59,7 +59,7 @@ else:
             'NAME': os.environ.get('DBNAME'),
             'HOST': os.environ.get('DBHOST'),
             'USER': os.environ.get('DBUSER'),
-            'PASSWORD': os.environ.get('DBPASS'),
+            'PASSWORD': os.environ.get('DBPASSWORD'),
             'OPTIONS': {'sslmode': 'require'},
         }
     }
@@ -76,7 +76,6 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "Login",
     "Cobranca",
-    "Agendamento",
     "Menu_Inicial",
     "Solicitacao",
     "Reserva",

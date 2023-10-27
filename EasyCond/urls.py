@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from Login import views as login_views
 #from Cobranca import views as cobranca_views #descontinuado 
@@ -32,7 +32,7 @@ urlpatterns = [
     # Telas do Login
     path('pagina_de_login/', login_views.pagina_de_login_view, name='pagina_de_login'),
     path('cadastro/', login_views.cadastro_view, name='cadastro'),
-    path('pagina_de_cadastro/', login_views.pagina_de_cadastro_view, name='pagina_de_cadastro'),
+    path('pagina_de_cadastro/', login_views.cadastro_usuario, name='pagina_de_cadastro'),
     #Telas do Menu_Inicial
     path('menu/', menu_views.menu_view, name='menu'),
     #Telas da Solicitação
