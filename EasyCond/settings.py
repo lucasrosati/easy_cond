@@ -30,7 +30,7 @@ if NOT_PROD:
     DEBUG = False
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'A SECRET KEY DO SEU PROJETO' #Testar colocar a secret key aqui
-    ALLOWED_HOSTS = ['appeasycond.azurewebsites.net']
+    ALLOWED_HOSTS = ['appeasycond.azurewebsites.net', '*']
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
