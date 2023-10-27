@@ -37,7 +37,7 @@ if NOT_PROD:
             'NAME': os.environ.get('DBNAME'),
             'HOST': os.environ.get('DBHOST'),
             'USER': os.environ.get('DBUSER'),
-            'PASSWORD': os.environ.get('DBPASS'),
+            'PASSWORD': os.environ.get('DBPASSWORD'),
             'OPTIONS': {'sslmode': 'require'},
         }
     }
@@ -59,7 +59,7 @@ else:
             'NAME': os.environ.get('DBNAME'),
             'HOST': os.environ.get('DBHOST'),
             'USER': os.environ.get('DBUSER'),
-            'PASSWORD': os.environ.get('DBPASS'),
+            'PASSWORD': os.environ.get('DBPASSWORD'),
             'OPTIONS': {'sslmode': 'require'},
         }
     }
@@ -76,7 +76,6 @@ INSTALLED_APPS = [
     "whitenoise.runserver_nostatic",
     "Login",
     "Cobranca",
-    "Agendamento",
     "Menu_Inicial",
     "Solicitacao",
     "Reserva",
