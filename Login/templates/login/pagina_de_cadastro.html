@@ -71,8 +71,8 @@
     <div class="container">
         <img src="/static/login/img/usericon.jpeg" alt="Ícone de Usuário" id="userIcon">
         <h2>Cadastro</h2>
-        <form action="{URL_DA_VIEW_DJANGO}" method="POST" id="cadastroForm">
-            <!--{% csrf_token %}-->
+        <form action="" method="POST" id="cadastroForm" onsubmit="enviarDados()">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -102,33 +102,28 @@
     <div class="success-notification" id="successNotification">Cadastro concluído com sucesso!</div>
 
     <script>
-
-        function enviarDados(){
-            const formulario = document.getElementById('cadastroForm')
-            const formData = new FormData(formulario)
-            fetch('login/pagina_de_cadastro',{
-                method:'POST',
-                body:formData,
-            }).then(data=>{
-                console.log("Dados salvos com sucesso",data)
-            })
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector("form");
-            const successNotification = document.querySelector("#successNotification");
-    
-            form.addEventListener("submit", function(event) {
-                event.preventDefault();
-                // Simule um redirecionamento após 2 segundos
-                setTimeout(function() {
-                    window.location.href = "/cadastro"; // Adicione a barra inicial para indicar a URL raiz
-                }, 2000);
-    
-                successNotification.style.display = "block";
-            });
+        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            enviarDados();
         });
+
+        function enviarDados() {
+            const formulario = document.getElementById('cadastroForm');
+            const formData = new FormData(formulario);
+            fetch('/pagina_de_cadastro/', { 
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json()) 
+            .then(data => {
+                console.log("Dados salvos com sucesso", data);
+                window.location.href = '/cadastro/'; 
+            })
+            .catch(error => {
+                console.error("Erro ao salvar os dados", error);
+            });
+        }
     </script>
-    
+
 </body>
 </html>

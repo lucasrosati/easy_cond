@@ -22,7 +22,8 @@ def cadastro_usuario(request):
         except:
             print("Erro ao salvar dados")
 
-        return render(request, 'login/pagina_de_login.html')
+        return render(request, 'login/cadastro.html')
+    return render(request, 'login/pagina_de_cadastro.html')    
 
 #nome = nome
 #nome de usuario = user
@@ -33,9 +34,6 @@ def cadastro_usuario(request):
 
 def cadastro_view(request):
     return render(request, 'login/cadastro.html')
-
-def pagina_de_cadastro_view(request):
-    return render(request, 'login/pagina_de_cadastro.html')
 
 def pagina_inicial(request):
     return render(request, 'login/cadastro.html')
