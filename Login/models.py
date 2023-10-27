@@ -9,5 +9,5 @@ class UserProfile(models.Model):
     apartamento = models.CharField(max_length=10)
     tipo_usuario = models.CharField(max_length=20)
 
-    def _str_(self):
-        return self.nome
+    #class Meta:
+            #db_table=#nome da tabela criada
