@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def denuncia_view(request):
+    return render(request, 'denuncia/denuncia.html')

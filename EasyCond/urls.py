@@ -18,17 +18,19 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from Login import views as login_views
-#from Cobranca import views as cobranca_views #descontinuado 
-#from Agendamento import views as agendamento_views #alterado para Reserva
 from Menu_Inicial import views as menu_views
 from Solicitacao import views as solicitacao_views
 from Reserva import views as reserva_views
+from Visitas import views as visitas_views
+from Denuncia import views as denuncia_views
+from Cobranca import views as cobranca_views 
+
 
 urlpatterns = [
-    #Admmin
+     # Admin
     path("admin/", admin.site.urls),
-    #Tela Inicial
-    path('', login_views.pagina_inicial, name='pagina_inicial'),
+    # Tela Inicial (definida como a tela de cadastro)
+    path('', login_views.cadastro_view, name='cadastro'),
     # Telas do Login
     path('pagina_de_login/', login_views.pagina_de_login_view, name='pagina_de_login'),
     path('cadastro/', login_views.cadastro_view, name='cadastro'),
@@ -41,6 +43,12 @@ urlpatterns = [
     path('reserva/', reserva_views.reserva_view, name='reserva'),
     path('calendario/', reserva_views.calendario_view, name='calendario'),
     path('legenda/', reserva_views.legenda_view, name='legenda'),    
+    #Tela Visitas
+    path('visitas/', visitas_views.visitas_view, name='visitas'),
+    #Tela Denuncia
+    path('denuncia/', denuncia_views.denuncia_view, name='denuncia'),
+    #Tela Cobranca 
+    path('cobranca/', cobranca_views.cobranca_view, name='cobranca'),
 ]
 
 # ... outras configurações de URL ...

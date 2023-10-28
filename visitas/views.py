@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def visitas_view(request):
+    return render(request, 'visitas/cadastro_visitas.html')

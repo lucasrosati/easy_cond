@@ -75,10 +75,12 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "whitenoise.runserver_nostatic",
     "Login",
-    "Cobranca",
     "Menu_Inicial",
     "Solicitacao",
     "Reserva",
+    "Visitas",
+    "Denuncia",
+    "Cobranca",
 ]
 
 MIDDLEWARE = [

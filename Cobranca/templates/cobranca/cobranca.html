@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 20px 0;
+            margin: 0;
         }
 
         .container {
@@ -31,8 +30,7 @@
             margin-top: 20px;
         }
 
-        th,
-        td {
+        th, td {
             border: 1px solid black;
             padding: 8px;
             text-align: left;
@@ -40,6 +38,26 @@
 
         th {
             background-color: #f2f2f2;
+        }
+
+        .return-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .return-button button {
+            display: block;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .return-button button:hover {
+            background-color: #0056b3;
         }
 
         .sort-btn {
@@ -65,19 +83,36 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h2>Tabela de Cobrança</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Data<button class="sort-btn" onclick="sortTable(0)"><span class="sort-arrows"><span 
-                        class="sort-arrow up" id="arrowUp0">&uarr;</span><span class="sort-arrow down" id="arrowDown0">&darr;</span></span></button></th>
-                    <th>Conta<button class="sort-btn" onclick="sortTable(1)"><span class="sort-arrows"><span 
-                        class="sort-arrow up" id="arrowUp1">&uarr;</span><span class="sort-arrow down" id="arrowDown1">&darr;</span></span></button></th>
-                    <th>Valor<button class="sort-btn" onclick="sortTable(2)"><span class="sort-arrows"><span 
-                        class="sort-arrow up" id="arrowUp2">&uarr;</span><span class="sort-arrow down" id="arrowDown2">&darr;</span></span></button></th>
+                    <th>Data
+                        <button class="sort-btn" onclick="sortTable(0)">
+                            <span class="sort-arrows">
+                                <span class="sort-arrow up" id="arrowUp0">&uarr;</span>
+                                <span class="sort-arrow down" id="arrowDown0">&darr;</span>
+                            </span>
+                        </button>
+                    </th>
+                    <th>Conta
+                        <button class="sort-btn" onclick="sortTable(1)">
+                            <span class="sort-arrows">
+                                <span class="sort-arrow up" id="arrowUp1">&uarr;</span>
+                                <span class="sort-arrow down" id="arrowDown1">&darr;</span>
+                            </span>
+                        </button>
+                    </th>
+                    <th>Valor
+                        <button class="sort-btn" onclick="sortTable(2)">
+                            <span class="sort-arrows">
+                                <span class="sort-arrow up" id="arrowUp2">&uarr;</span>
+                                <span class="sort-arrow down" id="arrowDown2">&darr;</span>
+                            </span>
+                        </button>
+                    </th>
                     <th>Link</th>
                 </tr>
             </thead>
@@ -95,6 +130,11 @@
             </tbody>
         </table>
     </div>
+
+    <a href="/menu/" class="return-button">
+        <button>Retornar ao Menu</button>
+    </a>
+
     <script>
         var currentDir = {
             0: "asc",
@@ -146,5 +186,4 @@
         }
     </script>
 </body>
-
 </html>
