@@ -21,7 +21,7 @@ from Login import views as login_views
 from Menu_Inicial import views as menu_views
 from Solicitacao import views as solicitacao_views
 from Reserva import views as reserva_views
-from Visitas import views as visitas_views
+from visitas import views as visitas_views
 from Denuncia import views as denuncia_views
 from Cobranca import views as cobranca_views 
 

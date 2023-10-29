@@ -78,7 +78,7 @@ INSTALLED_APPS = [
     "Menu_Inicial",
     "Solicitacao",
     "Reserva",
-    "Visitas",
+    "visitas",
     "Denuncia",
     "Cobranca",
 ]
