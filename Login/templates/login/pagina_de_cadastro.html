@@ -109,23 +109,11 @@
         function enviarDados() {
             const formulario = document.getElementById('cadastroForm');
             const formData = new FormData(formulario);
-
-            // Obter o valor do token CSRF
-            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-
             fetch('/pagina_de_cadastro/', {
                 method: 'POST',
                 body: formData,
-                headers: {
-                    'X-CSRFToken': csrfToken // Incluir o token CSRF nos cabeçalhos
-                },
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
                 console.log("Dados salvos com sucesso", data);
                 window.location.href = '/cadastro/'; // Redirecionar após o sucesso
