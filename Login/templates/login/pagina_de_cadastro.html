@@ -123,7 +123,8 @@
             .then(data => {
                 console.log("Dados salvos com sucesso", data);
                 document.getElementById('successNotification').style.display = 'block';
-            })
+                window.location.href = "/cadastro/";
+            })            
             .catch(error => {
                 console.error("Erro ao salvar os dados", error);
             });
