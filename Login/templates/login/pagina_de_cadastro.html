@@ -4,10 +4,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="{% static 'caminho/para/o/seu/estilo.css' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,7 +13,7 @@
         }
         .container {
             max-width: 400px;
-            margin: 30px auto;
+            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 5px;
@@ -23,7 +21,6 @@
         }
         h2 {
             text-align: center;
-            margin-bottom: 20px;
         }
         .form-group {
             margin-bottom: 20px;
@@ -31,55 +28,61 @@
         label {
             display: block;
             font-weight: bold;
-            margin-bottom: 5px;
         }
         input[type="text"],
-        input[type="password"],
-        select, button {
+        select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box;
         }
         button {
-            background-color: #28a745;
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
             color: #fff;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
-        .success-notification {
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            display: none;
-        }
+        #userIcon {
+        max-width: 50px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .success-notification {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: none;
+    }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="{% static 'login/img/usericon.jpeg' %}" alt="Ícone de Usuário" id="userIcon" style="max-width: 50px; height: auto; display: block; margin: 0 auto 20px;">
+        <img src="{% static 'login/img/usericon.jpeg' %}" alt="Ícone de Usuário" id="userIcon">
         <h2>Cadastro</h2>
-        <div class="success-notification" id="successNotification">Cadastro concluído com sucesso!</div>
         <form action="/pagina_de_cadastro/" method="POST" id="cadastroForm">
             {% csrf_token %}
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
             </div>
-            <div class="form-group">
+            <div class "form-group">
                 <label for="nome_usuario">Nome de usuário:</label>
                 <input type="text" id="nome_usuario" name="nome_usuario" required>
             </div>
             <div class="form-group">
                 <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required>
+                <input type="text" id="senha" name="senha" required>
             </div>
             <div class="form-group">
                 <label for="apartamento">Apartamento:</label>
@@ -89,21 +92,25 @@
                 <label for="tipo_usuario">Tipo de Usuário:</label>
                 <select id="tipo_usuario" name="tipo_usuario" required>
                     <option value="MORADOR">Morador</option>
-                    <option value="FUNCIONARIO">Funcionário</option>
+                    <option value="FUNCIONÁRIO">Funcionário</option>
                 </select>
             </div>
             <button type="submit">Cadastrar-se</button>
         </form>
     </div>
-
+    <div class="success-notification" id="successNotification">Cadastro concluído com sucesso!</div>
+    
     <script>
         document.getElementById('cadastroForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Impede o envio padrão do formulário
+            enviarDados();
+        });
 
+        function enviarDados() {
             const formulario = document.getElementById('cadastroForm');
             const formData = new FormData(formulario);
 
-            // Obter o valor do token CSRF dos cookies
+            // Obter o valor do token CSRF
             const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
             fetch('/pagina_de_cadastro/', {
@@ -112,7 +119,6 @@
                 headers: {
                     'X-CSRFToken': csrfToken // Incluir o token CSRF nos cabeçalhos
                 },
-                credentials: 'include' // Necessário para cookies serem enviados/recebidos
             })
             .then(response => {
                 if (!response.ok) {
@@ -122,12 +128,12 @@
             })
             .then(data => {
                 console.log("Dados salvos com sucesso", data);
-                document.getElementById('successNotification').style.display = 'block';
+                window.location.href = '/cadastro/'; // Redirecionar após o sucesso
             })
             .catch(error => {
                 console.error("Erro ao salvar os dados", error);
             });
-        });
+        }
     </script>
 </body>
 </html>
