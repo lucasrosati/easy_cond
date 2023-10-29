@@ -37,7 +37,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('DBNAME'),
         'HOST': os.environ.get('DBHOST'),
-        'PORT': os.environ.get('DBPORT'),
         'USER': os.environ.get('DBUSER'),
         'PASSWORD': os.environ.get('DBPASSWORD'),
         'OPTIONS': {'sslmode': 'require'},
