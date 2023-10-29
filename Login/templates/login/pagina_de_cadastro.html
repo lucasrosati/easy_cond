@@ -70,7 +70,7 @@
     <div class="container">
         <img src="{% static 'login/img/usericon.jpeg' %}" alt="Ícone de Usuário" id="userIcon">
         <h2>Cadastro</h2>
-        <form action="/pagina_de_cadastro/" method="POST" id="cadastroForm">
+        <form action="" method="POST" id="cadastroForm">
             {% csrf_token %}
             <div class="form-group">
                 <label for="nome">Nome:</label>
@@ -113,7 +113,6 @@
                 method: 'POST',
                 body: formData,
             })
-            .then(response => response.json())
             .then(data => {
                 console.log("Dados salvos com sucesso", data);
                 window.location.href = '/cadastro/'; // Redirecionar após o sucesso
