@@ -22,7 +22,7 @@ load_dotenv(BASE_DIR / '.env')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-TARGET_ENV = 'development'
+TARGET_ENV = os.getenv('TARGET_ENV')
 NOT_PROD = not TARGET_ENV.lower().startswith('prod')
 
 if NOT_PROD:
@@ -36,6 +36,7 @@ if NOT_PROD:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.environ.get('DBNAME'),
             'HOST': os.environ.get('DBHOST'),
+            'PORT': os.environ.get('DBPORT', '5432'),
             'USER': os.environ.get('DBUSER'),
             'PASSWORD': os.environ.get('DBPASS'),
             'OPTIONS': {'sslmode': 'require'},
@@ -58,6 +59,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.environ.get('DBNAME'),
             'HOST': os.environ.get('DBHOST'),
+            'PORT': os.environ.get('DBPORT', '5432'),
             'USER': os.environ.get('DBUSER'),
             'PASSWORD': os.environ.get('DBPASS'),
             'OPTIONS': {'sslmode': 'require'},
