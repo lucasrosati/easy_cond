@@ -50,20 +50,29 @@
             background-color: #0056b3;
         }
         #userIcon {
-        max-width: 50px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
-    .success-notification {
-        background-color: #4CAF50;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 10px;
-        display: none;
-    }
+            max-width: 50px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .success-notification {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        .error-notification {
+            background-color: #ff6b6b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -76,7 +85,7 @@
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
             </div>
-            <div class "form-group">
+            <div class="form-group">
                 <label for="nome_usuario">Nome de usuário:</label>
                 <input type="text" id="nome_usuario" name="nome_usuario" required>
             </div>
@@ -97,28 +106,47 @@
             </div>
             <button type="submit">Cadastrar-se</button>
         </form>
+        <div class="success-notification" id="successNotification">Cadastro concluído com sucesso!</div>
+        <div class="error-notification" id="errorNotification">Erro ao cadastrar-se, usuário já cadastrado!</div>
     </div>
-    <div class="success-notification" id="successNotification">Cadastro concluído com sucesso!</div>
     
     <script>
         document.getElementById('cadastroForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Impede o envio padrão do formulário
+            const errorNotification = document.getElementById('errorNotification');
+            errorNotification.style.display = 'none'; // Oculta a notificação de erro
             enviarDados();
         });
 
         function enviarDados() {
             const formulario = document.getElementById('cadastroForm');
             const formData = new FormData(formulario);
-            fetch('/pagina_de_cadastro/', {
-                method: 'POST',
-                body: formData,
+            fetch('/verificar_usuario/?nome_usuario=' + formData.get('nome_usuario'), {
+                method: 'GET',
             })
+            .then(response => response.json())
             .then(data => {
-                console.log("Dados salvos com sucesso", data);
-                window.location.href = '/cadastro/'; // Redirecionar após o sucesso
+                if (data.mensagem === 'Usuário já existe') {
+                    // Exibe a notificação de erro
+                    const errorNotification = document.getElementById('errorNotification');
+                    errorNotification.style.display = 'block';
+                } else {
+                    // Caso contrário, o usuário pode ser cadastrado
+                    fetch('/pagina_de_cadastro/', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(data => {
+                        console.log("Dados salvos com sucesso", data);
+                        window.location.href = '/cadastro/'; // Redirecionar após o sucesso
+                    })
+                    .catch(error => {
+                        console.error("Erro ao salvar os dados", error);
+                    });
+                }
             })
             .catch(error => {
-                console.error("Erro ao salvar os dados", error);
+                console.error("Erro ao verificar o usuário", error);
             });
         }
     </script>
