@@ -1,7 +1,14 @@
 from django.shortcuts import render
-from Login.models import UserProfile
 from django.http import JsonResponse
+from .models import UserProfile
+from django.contrib.auth.views import LoginView
 
+
+# Define a sua visualização personalizada para login
+class CustomLoginView(LoginView):
+    template_name = 'pagina_de_login.html'
+
+# Visualização para cadastrar um novo usuário
 def cadastro_usuario(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
@@ -25,14 +32,11 @@ def cadastro_usuario(request):
 
     return render(request, 'login/pagina_de_cadastro.html')
 
-
+# Outras visualizações que você já tinha definido
 def cadastro_view(request):
     return render(request, 'login/cadastro.html')
 
 def pagina_inicial(request):
-    return render(request, 'login/pagina_de_login.html')
-
-def pagina_de_login_view(request):
     return render(request, 'login/pagina_de_login.html')
 
 def verificar_usuario(request):
@@ -46,3 +50,7 @@ def verificar_usuario(request):
             return JsonResponse({"mensagem": "Usuário já existe"})
         else:
             return JsonResponse({"mensagem": "Usuário disponível"})
+
+
+def pagina_de_login_view(request):
+    return render(request, 'login/pagina_de_login.html')
