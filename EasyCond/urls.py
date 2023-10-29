@@ -49,6 +49,7 @@ urlpatterns = [
     path('denuncia/', denuncia_views.denuncia_view, name='denuncia'),
     #Tela Cobranca 
     path('cobranca/', cobranca_views.cobranca_view, name='cobranca'),
+    path('verificar_usuario/', login_views.verificar_usuario, name='verificar_usuario'),
 ]
 
 # ... outras configurações de URL ...
