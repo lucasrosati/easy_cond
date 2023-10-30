@@ -7,7 +7,11 @@ from Solicitacao import views as solicitacao_views
 from Reserva import views as reserva_views
 from visitas import views as visitas_views
 from Denuncia import views as denuncia_views
-from Cobranca import views as cobranca_views
+from Cobranca import views as cobranca_views 
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView
+from Login.views import pagina_de_login_view
+
 
 urlpatterns = [
     # Admin
@@ -18,7 +22,10 @@ urlpatterns = [
     path('pagina_de_login/', login_views.pagina_de_login_view, name='pagina_de_login'),
     path('cadastro/', login_views.cadastro_view, name='cadastro'),
     path('pagina_de_cadastro/', login_views.cadastro_usuario, name='pagina_de_cadastro'),
-    path('login/', login_views.CustomLoginView.as_view(), name='login'),  # Use apenas a sua visualização personalizada
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+   path('login/', login_views.CustomLoginView.as_view(), name='login'),
+   path('pagina_de_login/', pagina_de_login_view, name='pagina_de_login'),
+
 
     # Rota para redirecionar após o login bem-sucedido
     path('menu/', menu_views.menu_view, name='menu'),
