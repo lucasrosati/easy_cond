@@ -37,6 +37,7 @@ urlpatterns = [
     path('legenda/', reserva_views.legenda_view, name='legenda'),
     # Tela Visitas
     path('visitas/', visitas_views.visitas_view, name='visitas'),
+    path('cadastro_visita/', visitas_views.cadastro_visita_view, name='cadastro_visita'),
     # Tela Denuncia
     path('denuncia/', denuncia_views.fazer_denuncia, name='denuncia'),
     # Tela Cobrança 
