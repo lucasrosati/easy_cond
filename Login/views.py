@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import JsonResponse
 from .models import UserProfile
 from django.contrib.auth.views import LoginView
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.hashers import make_password
+
 
 # Define a sua visualização personalizada para login
 class CustomLoginView(LoginView):
@@ -18,15 +17,12 @@ def cadastro_usuario(request):
         apartamento = request.POST.get('apartamento')
         tipo_usuario = request.POST.get('tipo_usuario')
 
-        # Criar uma senha hash
-        senha_hashed = make_password(senha)
-
         # Verificar se o usuário já existe no banco de dados
         usuario_existe = UserProfile.objects.filter(nome_usuario=nome_usuario).exists()
         if usuario_existe:
             return JsonResponse({'error': 'Este nome de usuário já está em uso. Por favor, escolha outro.'})
 
-        novoUsuario = UserProfile(nome=nome, nome_usuario=nome_usuario, apartamento=apartamento, tipo_usuario=tipo_usuario, senha=senha_hashed)
+        novoUsuario = UserProfile(nome=nome, nome_usuario=nome_usuario, apartamento=apartamento, tipo_usuario=tipo_usuario, senha=senha)
 
         try:
             novoUsuario.save()
@@ -35,23 +31,6 @@ def cadastro_usuario(request):
             return JsonResponse({"error": str(e)})
 
     return render(request, 'login/pagina_de_cadastro.html')
-
-# Visualização de login personalizada
-def custom_login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('senha')
-        
-        # Verificar a senha durante a autenticação
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('/menu/')  # Redirecione para a página de menu após o login bem-sucedido
-        else:
-            # Autenticação falhou, exiba uma mensagem de erro
-            return render(request, 'login/pagina_de_login.html', {'error_message': 'Credenciais inválidas'})
-
-    return render(request, 'login/pagina_de_login.html')
 
 # Outras visualizações que você já tinha definido
 def cadastro_view(request):
@@ -71,6 +50,7 @@ def verificar_usuario(request):
             return JsonResponse({"mensagem": "Usuário já existe"})
         else:
             return JsonResponse({"mensagem": "Usuário disponível"})
+
 
 def pagina_de_login_view(request):
     return render(request, 'login/pagina_de_login.html')

@@ -83,6 +83,7 @@ INSTALLED_APPS = [
     "visitas",
     "Denuncia",
     "Cobranca",
+    "cameras",
 ]
 
 MIDDLEWARE = [
