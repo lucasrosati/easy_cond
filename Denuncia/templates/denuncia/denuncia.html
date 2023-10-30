@@ -39,32 +39,38 @@
         button:hover {
             background-color: #0056b3;
         }
-        .return-button {
+        .notification {
+            display: none;
             position: fixed;
-            bottom: 10px;
+            top: 10px;
             right: 10px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Denunciar Infração</h2>
-        <form action="#" method="post">
+        <form method="post">
+            {% csrf_token %}
             <label for="local">Local da Infração:</label>
             <select id="local" name="local">
                 <option value="academia">Academia</option>
-                <option value="campo_futebol">Campo de Futebol</option>
-                <option value="quadra_tenis">Quadra de Tênis</option>
+                <option value="campo_de_futebol">Campo de Futebol</option>
+                <option value="quadra_de_tenis">Quadra de Tênis</option>
                 <option value="espaco_gourmet">Espaço Gourmet</option>
-                <option value="salao_festas">Salão de Festas</option>
+                <option value="salao_de_festas">Salão de Festas</option>
             </select>
 
             <label for="tipo_infracao">Tipo de Infração:</label>
             <select id="tipo_infracao" name="tipo_infracao">
-                <option value="barulho">Barulho Excessivo</option>
-                <option value="dano">Dano ao Patrimônio</option>
-                <option value="desrespeito">Desrespeito às Normas</option>
-                <option value="outro">Outro</option>
+                <option value="barulho_excessivo">Barulho Excessivo</option>
+                <option value="dano_ao_patrimonio">Dano ao Patrimônio</option>
+                <option value="desrespeito_as_normas">Desrespeito às Normas</option>
             </select>
 
             <label for="unidade">Unidade:</label>
@@ -76,22 +82,33 @@
                 <option value="desconhecido">Desconhecido</option>            
             </select>
 
-            <label for="descricao">Descrição da Infração:</label>
-            <textarea id="descricao" name="descricao" rows="4"></textarea>
+            <label for="comentario">Comentário sobre a Infração:</label>
+            <textarea id="comentario" name="comentario" rows="4"></textarea>
 
             <button type="submit">Enviar Denúncia</button>
         </form>
     </div>
-    <a href="/menu/" class="return-button">
-        <button>Retornar ao Menu</button>
-    </a>
+
+    <div id="notification" class="notification"></div>
+
     <script>
-        document.querySelector("button[type='submit']").addEventListener("click", function(event) {
-            event.preventDefault();
-    
-            if (window.confirm("Notificação\n\nDenúncia encaminhada")) {
-                event.target.form.reset();
-            }
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);  // A notificação desaparecerá após 3 segundos 
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            
+            form.addEventListener('submit', function(event) {
+                //event.preventDefault();
+                showNotification('Denúncia enviada com sucesso!');
+            });
         });
     </script>
 </body>
