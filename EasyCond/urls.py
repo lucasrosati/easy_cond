@@ -23,10 +23,8 @@ urlpatterns = [
     path('cadastro/', login_views.cadastro_view, name='cadastro'),
     path('pagina_de_cadastro/', login_views.cadastro_usuario, name='pagina_de_cadastro'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
-   path('login/', login_views.CustomLoginView.as_view(), name='login'),
-   path('pagina_de_login/', pagina_de_login_view, name='pagina_de_login'),
-
-
+    path('login/', login_views.CustomLoginView.as_view(), name='login'),
+    path('pagina_de_login/', pagina_de_login_view, name='pagina_de_login'),
     # Rota para redirecionar após o login bem-sucedido
     path('menu/', menu_views.menu_view, name='menu'),
     # Telas do Menu_Inicial
@@ -40,7 +38,7 @@ urlpatterns = [
     # Tela Visitas
     path('visitas/', visitas_views.visitas_view, name='visitas'),
     # Tela Denuncia
-    path('denuncia/', denuncia_views.denuncia_view, name='denuncia'),
+    path('denuncia/', denuncia_views.fazer_denuncia, name='denuncia'),
     # Tela Cobrança 
     path('cobranca/', cobranca_views.cobranca_view, name='cobranca'),
     path('verificar_usuario/', login_views.verificar_usuario, name='verificar_usuario'),
