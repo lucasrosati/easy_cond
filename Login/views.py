@@ -3,7 +3,6 @@ from django.http import JsonResponse
 from .models import UserProfile
 from django.contrib.auth.views import LoginView
 
-
 # Define a sua visualização personalizada para login
 class CustomLoginView(LoginView):
     template_name = 'pagina_de_login.html'
@@ -50,7 +49,6 @@ def verificar_usuario(request):
             return JsonResponse({"mensagem": "Usuário já existe"})
         else:
             return JsonResponse({"mensagem": "Usuário disponível"})
-
 
 def pagina_de_login_view(request):
     return render(request, 'login/pagina_de_login.html')

@@ -11,7 +11,7 @@ from Cobranca import views as cobranca_views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
 from Login.views import pagina_de_login_view
-
+from cameras import views as cameras_views
 
 urlpatterns = [
     # Admin
@@ -43,6 +43,10 @@ urlpatterns = [
     # Tela Cobrança 
     path('cobranca/', cobranca_views.cobranca_view, name='cobranca'),
     path('verificar_usuario/', login_views.verificar_usuario, name='verificar_usuario'),
+    # Telas cameras
+    path('cameras/', cameras_views.list_cameras, name='list_cameras'),
+    path('cameras/<int:camera_id>/', cameras_views.camera_detail, name='camera_detail'),
+    path('cameras/add/', cameras_views.add_camera, name='add_camera'),    
 ]
 
 # ... outras configurações de URL ...

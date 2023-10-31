@@ -5,47 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Câmeras de Segurança</title>
     <style>
-        body {
+        body, html {
+            height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
         }
         .container {
+            position: relative;
+            min-height: 100%;
             text-align: center;
             padding: 20px;
+            max-width: 100vw;
+            overflow: hidden;
         }
-        .thumbnails {
-            display: grid;
-            grid-template-columns: repeat(2, 120px);
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .thumbnail {
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .thumbnail:hover {
-            transform: scale(1.1);
-        }
-        .gif-container {
-            margin-top: 20px;
+        .content {
             display: flex;
             justify-content: center;
-            align-items: center; /* Centraliza verticalmente */
+            align-items: center;
+            height: 80vh;
             flex-direction: column;
         }
-        .main-gif {
-            max-width: 100%; /* Ajusta a largura máxima da imagem */
-            max-height: 400px; /* Define uma altura máxima */
-            display: none;
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+            background-color: #eee;
         }
-        .show {
-            display: block;
+        .camera-card {
+            padding: 10px;
+            text-align: center;
+            background-color: #ccc;
+            border: 1px solid #ddd;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .back-button {
+        .camera-card:hover {
+            transform: scale(1.05);
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .area {
             margin-top: 10px;
-            cursor: pointer;
+            font-weight: bold;
+        }
+        .camera-card.large {
+            grid-column: span 2;
+            transform: scale(1.5);
+            z-index: 10;
+        }
+        .return-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
             padding: 10px 20px;
             background-color: #3498db;
             color: #fff;
@@ -53,99 +72,74 @@
             border-radius: 5px;
             font-size: 16px;
             transition: background-color 0.3s;
-            display: none; /* Oculta o botão inicialmente */
+            text-decoration: none;
+            display: inline-block;
         }
-        .back-button:hover {
+        .return-button:hover {
             background-color: #2980b9;
         }
-        /* Estilo para botão "Retornar ao Menu" */
-        .return-button {
+        .back-button {
             cursor: pointer;
-            padding: 10px 20px;
-            background-color: #007bff;
+            padding: 10px 30px;
+            background-color: #3498db;
             color: #fff;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             transition: background-color 0.3s;
-            position: fixed; /* Fixa o botão na janela do navegador */
-            bottom: 10px; /* Distância do fundo */
-            right: 10px; /* Distância da direita */
+            display: none;
+            margin-top: 60px;
         }
-        .return-button:hover {
-            background-color: #0056b3;
-        }
-        /* Estilo para o contêiner de botões "Voltar ao Grid" e "Retornar ao Menu" */
-        .return-buttons-container {
-            display: flex;
-            flex-direction: column; /* Empilha os botões verticalmente */
-            align-items: center; /* Centraliza horizontalmente */
-            margin-top: 10px;
+        .back-button:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Câmeras de Segurança</h1>    
-
-        <div class="gif-container">
-            <img src="" alt="GIF Principal" class="main-gif" id="mainGif">            
-        </div>
-
-        <div class="thumbnails">
-            <div class="thumbnail" onclick="changeGif('https://media.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif')">
-                <img src="https://media.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif" alt="GIF 1" width="120" height="100">
+        <div class="content">
+            <div class="grid-container" id="gridContainer">
+                {% for camera in cameras %}
+                    <div class="camera-card" onclick="toggleCameraDetails(this)">
+                        <div class="thumbnail">
+                            <img src="{{ camera.url }}" alt="{{ camera.nome }}">
+                        </div>
+                        <div class="area">{{ camera.area }}</div>
+                    </div>
+                {% endfor %}
             </div>
-            <div class="thumbnail" onclick="changeGif('https://media.giphy.com/media/5wWf7H89PisM6An8UAU/giphy.gif')">
-                <img src="https://media.giphy.com/media/5wWf7H89PisM6An8UAU/giphy.gif" alt="GIF 2" width="120">
-            </div>
-            <div class="thumbnail" onclick="changeGif('https://media.giphy.com/media/4cuyucPeVWbNS/giphy.gif')">
-                <img src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.gif" alt="GIF 3" width="120">
-            </div>
-            <div class="thumbnail" onclick="changeGif('https://media.giphy.com/media/NOxZHqpeAw9tm/giphy.gif')">
-                <img src="https://media.giphy.com/media/NOxZHqpeAw9tm/giphy.gif" alt="GIF 4" width="120">
-            </div>
+            <button class="back-button" onclick="showAllCameras()">Retornar ao Grid</button>
         </div>
     </div>
-    <div class="return-buttons-container">
-        <button class="back-button" id="backToGrid" onclick="showThumbnails()">Voltar ao Grid</button>
-        <a href="/menu/" class="return-button">Retornar ao Menu</a>
-    </div>
+    
+    <a href="/menu/" class="return-button">Retornar ao Menu</a>
 
     <script>
-        function changeGif(gifSrc) {
-            var mainGif = document.getElementById('mainGif');
-            var thumbnails = document.querySelectorAll('.thumbnail img');
-            var backButton = document.querySelector('.back-button');
-
-            // Oculta os botões "Voltar ao Grid" e "Retornar ao Menu"
-            backButton.style.display = 'block';
-
-            // Oculta todas as miniaturas
-            for (var i = 0; i < thumbnails.length; i++) {
-                thumbnails[i].style.display = 'none';
+        function toggleCameraDetails(element) {
+            var isLarge = element.classList.contains('large');
+            if (isLarge) {
+                showAllCameras();
+            } else {
+                showCameraDetails(element);
             }
-
-            // Exibe a imagem principal com o src correto
-            mainGif.src = gifSrc;
-            mainGif.classList.add('show');
         }
 
-        function showThumbnails() {
-            var mainGif = document.getElementById('mainGif');
-            var thumbnails = document.querySelectorAll('.thumbnail img');
-            var backButton = document.querySelector('.back-button');
+        function showCameraDetails(element) {
+            document.querySelectorAll('.camera-card').forEach(function(camera) {
+                camera.style.display = 'none';
+            });
+            element.classList.add('large');
+            element.style.display = 'block';
+            document.querySelector('.back-button').style.display = 'block';
+        }
 
-            // Oculta a imagem principal
-            mainGif.classList.remove('show');
-
-            // Exibe todas as miniaturas
-            for (var i = 0; i < thumbnails.length; i++) {
-                thumbnails[i].style.display = 'block';
-            }
-
-            // Oculta o botão "Voltar ao Grid"
-            backButton.style.display = 'none';
+        function showAllCameras() {
+            document.querySelectorAll('.camera-card').forEach(function(camera) {
+                camera.style.display = 'block';
+                camera.classList.remove('large');
+            });
+            document.querySelector('.back-button').style.display = 'none';
         }
     </script>
 </body>
