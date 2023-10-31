@@ -74,7 +74,7 @@
         <div class="form-container">
             <img src="{% static 'login/img/login.jpeg' %}" alt="" id="login">
             <h2></h2>
-            <form id="cadastroForm" action="/login/" method="POST">                
+            <form id="cadastroForm">
                 {% csrf_token %}  <!-- Token CSRF -->
                 <div class="form-group">
                     <label for="username">Nome de Usuário:</label>
@@ -84,52 +84,11 @@
                     <label for="senha">Senha:</label>
                     <input type="password" id="senha" name="senha" required>
                 </div>
-                <button type="submit" id="loginButton">Login</button>
+                <!-- Botão de login que redireciona para o menu após o clique -->
+                <button type="button" id="loginButton" onclick="window.location.href = '/menu/'">Login</button>
             </form>
             <p><a href="#">Esqueceu sua senha?</a></p>
         </div>
     </div>
-
-    <script>
-        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
-            autenticarUsuario();
-        });
-
-        function autenticarUsuario() {
-            const formulario = document.getElementById('cadastroForm');
-            const formData = new FormData(formulario);
-
-            // Obtenha o token CSRF do cookie
-            const csrfToken = getCookie('csrftoken');
-
-            // Adicione o token CSRF ao cabeçalho da solicitação
-            fetch('/login/', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRFToken': csrfToken
-                }
-            })
-            .then(response => {
-                if (response.status === 200) {
-                    // O login foi bem-sucedido, redirecione para a página de menu
-                    window.location.href = '/menu/';
-                } else {
-                    // O login falhou, exiba uma mensagem de erro
-                    alert("Falha no login. Verifique suas credenciais.");
-                }
-            })
-            .catch(error => {
-                console.error("Erro ao autenticar o usuário", error);
-            });
-        }
-
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-    </script>
 </body>
 </html>
