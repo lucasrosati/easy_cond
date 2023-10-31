@@ -69,8 +69,8 @@ Para contribuir com nosso projeto é simples! Você vai precisar apenas de:
 
 <a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Diagrama de Atividades</a><br>
 <a href="https://drive.google.com/file/d/1dpDG1Gro-cm6tzkfeaMmX98AvemJQxgF/view?usp=sharing">Issues/Bug #1</a><br>
-<a href="">Screencast - Protótipo Lo-Fi Figma atualizado</a><br>
-<a href="">Screencast - Novas Histórias</a><br>
+<a href="https://drive.google.com/file/d/101n12_IqR6SwkN3zNcVdgfTLcyQbygpN/view?usp=sharing">Screencast - Protótipo Lo-Fi Figma atualizado</a><br>
+<a href="https://drive.google.com/file/d/1U0IIvtvlqCvAQXUz4nJCCS_-QwVRpFov/view?usp=sharing">Screencast - Novas Histórias</a><br>
 <a href="">Screencast - Build e Deployment</a><br>
 <a href="">Screencast - Execução de testes E2E</a><br>
 <a href="">Quadro da 3ª Sprint Jira</a><br>
