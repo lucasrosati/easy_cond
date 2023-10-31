@@ -71,9 +71,9 @@ Para contribuir com nosso projeto é simples! Você vai precisar apenas de:
 <a href="https://drive.google.com/file/d/1dpDG1Gro-cm6tzkfeaMmX98AvemJQxgF/view?usp=sharing">Issues/Bug #1</a><br>
 <a href="https://drive.google.com/file/d/101n12_IqR6SwkN3zNcVdgfTLcyQbygpN/view?usp=sharing">Screencast - Protótipo Lo-Fi Figma atualizado</a><br>
 <a href="https://drive.google.com/file/d/1U0IIvtvlqCvAQXUz4nJCCS_-QwVRpFov/view?usp=sharing">Screencast - Novas Histórias</a><br>
-<a href="">Screencast - Build e Deployment</a><br>
-<a href="">Screencast - Execução de testes E2E</a><br>
-<a href="">Quadro da 3ª Sprint Jira</a><br>
+<a href="https://drive.google.com/file/d/1-iJw-fcwlxbhYpfWN9pm6pP8gjvOqguH/view?usp=drive_link">Screencast - Build e Deployment</a><br>
+<a href="https://drive.google.com/file/d/1tgcpGpQlWb4I2k2KnwcUgLyWric1xnhb/view?usp=drive_link">Screencast - Execução de testes E2E</a><br>
+<a href="https://drive.google.com/drive/folders/1ULmdmM7vJkuHfHvhyBuXYvzkX1GbPkZ7">Quadro da 3ª Sprint Jira</a><br>
 <a href="https://docs.google.com/document/d/1XzwrVShiVB3Kfcz932qQTVFRNU7MG2H4IT5FI1T2JB8/edit?usp=sharing">Programação em Par experimentada e usado</a><br>
 [Link da aplicação web](https://appeasycond.azurewebsites.net)
 
