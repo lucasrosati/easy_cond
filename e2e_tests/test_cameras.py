@@ -1,43 +1,37 @@
-# import unittest
-# from selenium import webdriver
+import unittest
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
 
-# class CamerasTest(unittest.TestCase):
-#     def setUp(self):
-#         # Configurar o driver do Selenium (certifique-se de que o driver está no PATH)
-#         self.driver = webdriver.Chrome()
+class CamerasTest(unittest.TestCase):
+    def setUp(self):
+        self.browser = webdriver.Chrome()
 
-#     def test_visualizar_pagina_de_cameras(self):
-#         # Abra a página inicial do seu aplicativo Django
-#         self.driver.get("file:///C:/Users/marce/OneDrive/Dokumenti/GitHub/easy_cond/easy_cond/cameras/templates/cameras/acesso.html")
+    def test_acesso_cameras(self):
+        url = "https://appeasycond.azurewebsites.net/cameras/"  
 
-#         # Verifique se o título da página está correto
-#         self.assertIn("Câmeras de Segurança", self.driver.title)
+        self.browser.get(url)
+        
+        for i in range(1,5):
+            
 
-#         camera1 = self.driver.find_element("")
-#         # # Localize os elementos da página (por exemplo, botões, campos de entrada) e interaja com eles
-#         # numero_input = self.driver.find_element("#id_numero")
-#         # area_input = self.driver.find_element("#id_area")
-#         # url_input = self.driver.find_element("#id_url")
+            elemento = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, f'.grid-container > div:nth-child({i})')))
 
-#         # # # Preencha os campos com dados de teste
-#         # # numero_input.send_keys("01")
-#         # # area_input.send_keys("Área de teste")
-#         # # url_input.send_keys("http://www.example.com")
+            elemento.click()
+            
+            retornar_ao_grid =  WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div[1]/div/button')))
+            time.sleep(2)
+            retornar_ao_grid.click()
+            
+            time.sleep(2)
 
-#         # # # Submeta o formulário
-#         # # submit_button = self.driver.find_element_by_id("submit_button")
-#         # # submit_button.click()
+        voltar_ao_menu = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/a')))
+        voltar_ao_menu.click()
+        time.sleep(2)
+    def tearDown(self):
+        self.browser.quit()
 
-#         # # Aguarde a página de resposta (ou elemento) carregar
-#         # self.driver.implicitly_wait(10)
-
-#         # # Verifique se a página de resposta contém uma mensagem de sucesso
-#         # mensagem_sucesso = self.driver.find_element_by_id("mensagem_sucesso")
-#         # self.assertIn("Registro criado com sucesso!", mensagem_sucesso.text)
-
-#     def tearDown(self):
-#         # Feche o navegador após o teste
-#         self.driver.quit()
-
-
-
+if __name__ == '__main__':
+    unittest.main()

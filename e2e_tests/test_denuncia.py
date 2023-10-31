@@ -11,7 +11,7 @@ class DenunciaTest(unittest.TestCase):
         self.browser = webdriver.Chrome()
 
     def test_denuncia(self):
-        self.browser.get("file:///C:/Users/marce/OneDrive/Dokumenti/GitHub/easy_cond/easy_cond/Denuncia/templates/denuncia/denuncia.html")
+        self.browser.get("https://appeasycond.azurewebsites.net/denuncia/")
 
        
         local_input = Select(self.browser.find_element(By.NAME, "local"))
