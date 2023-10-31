@@ -7,11 +7,11 @@ import time
 
 class VisitantesTest(unittest.TestCase):
     def setUp(self):
-        # Configurar o driver do Selenium (certifique-se de que o driver está no PATH)
+
         self.browser = webdriver.Chrome()
 
     def test_cadastro_visita(self):
-        # Abra a página de cadastro de visitas do seu aplicativo Django
+
         self.browser.get("file:///C:/Users/marce/OneDrive/Dokumenti/GitHub/easy_cond/easy_cond/visitas/templates/visitas/cadastro_visitas.html")
 
         nome_input = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.ID, "nome")))
@@ -22,19 +22,19 @@ class VisitantesTest(unittest.TestCase):
         usuario = "Ronaldo Jacaré"
         cpf = "128.420.034-54"
 
-        # Aguarde 1 segundo para que o campo 'nome' seja visível
         time.sleep(1)
-        nome_input.send_keys(usuario)
+        for char in usuario:
+            nome_input.send_keys(char)
+            time.sleep(0.2)
 
-        # Aguarde 1 segundo para que o campo 'cpf' seja visível
         time.sleep(1)
-        cpf_input.send_keys(cpf)
+        for char in cpf:
+            cpf_input.send_keys(char)
+            time.sleep(0.2)
 
-        # Aguarde 1 segundo para que o campo 'visitante' seja visível
         time.sleep(1)
         visitante_input.click()
 
-        # Aguarde 1 segundo antes de clicar no botão 'cadastrar'
         time.sleep(1)
         cadastrar_input.click()
 
