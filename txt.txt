@@ -1,0 +1,198 @@
+views: from django.shortcuts import render, get_object_or_404, redirect
+from .models import CamerasProfile
+from .forms import CamerasProfileForm
+
+def list_cameras(request):
+    cameras = CamerasProfile.objects.all()
+    return render(request, 'list_cameras.html', {'cameras': cameras})
+
+def camera_detail(request, camera_id):
+    camera = get_object_or_404(CamerasProfile, id=camera_id)
+    return render(request, 'camera_detail.html', {'camera': camera})
+
+def add_camera(request):
+    if request.method == "POST":
+        form = CamerasProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('list_cameras')  # Supõe que você tem uma URL nomeada para a view list_cameras
+    else:
+        form = CamerasProfileForm()
+    return render(request, 'add_camera.html', {'form': form})
+
+models: from django.db import models
+
+class CamerasProfile(models.Model):
+    numero= models.CharField(max_length=2)
+    area = models.CharField(max_length=50)  
+    url = models.CharField(max_length=500)    
+
+    class Meta:
+        db_table = 'registro_cameras'
+
+forms: from django import forms
+from .models import CamerasProfile
+
+class CamerasProfileForm(forms.ModelForm):
+    class Meta:
+        model = CamerasProfile
+        fields = ['numero', 'area', 'url']
+
+admim: from django.contrib import admin
+from .models import CamerasProfile
+
+admin.site.register(CamerasProfile)
+
+html: <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câmeras de Segurança</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(2, 120px);
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .thumbnail {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+        .gif-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centraliza verticalmente */
+            flex-direction: column;
+        }
+        .main-gif {
+            max-width: 100%; /* Ajusta a largura máxima da imagem */
+            max-height: 400px; /* Define uma altura máxima */
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        .back-button {
+            margin-top: 10px;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: none; /* Oculta o botão inicialmente */
+        }
+        .back-button:hover {
+            background-color: #2980b9;
+        }
+        /* Estilo para botão "Retornar ao Menu" */
+        .return-button {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            position: fixed; /* Fixa o botão na janela do navegador */
+            bottom: 10px; /* Distância do fundo */
+            right: 10px; /* Distância da direita */
+        }
+        .return-button:hover {
+            background-color: #0056b3;
+        }
+        /* Estilo para o contêiner de botões "Voltar ao Grid" e "Retornar ao Menu" */
+        .return-buttons-container {
+            display: flex;
+            flex-direction: column; /* Empilha os botões verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Câmeras de Segurança</h1>    
+
+        <div class="gif-container">
+            <img src="" alt="GIF Principal" class="main-gif" id="mainGif">            
+        </div>
+
+        <div class="thumbnails">
+            <div class="thumbnail" onclick="changeGif('https://media.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif')">
+                <img src="https://media.giphy.com/media/cXblnKXr2BQOaYnTni/giphy.gif" alt="GIF 1" width="120" height="100">
+            </div>
+            <div class="thumbnail" onclick="changeGif('https://media.giphy.com/media/5wWf7H89PisM6An8UAU/giphy.gif')">
+                <img src="https://media.giphy.com/media/5wWf7H89PisM6An8UAU/giphy.gif" alt="GIF 2" width="120">
+            </div>
+            <div class="thumbnail" onclick="changeGif('https://media.giphy.com/media/4cuyucPeVWbNS/giphy.gif')">
+                <img src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.gif" alt="GIF 3" width="120">
+            </div>
+            <div class="thumbnail" onclick="changeGif('https://media.giphy.com/media/NOxZHqpeAw9tm/giphy.gif')">
+                <img src="https://media.giphy.com/media/NOxZHqpeAw9tm/giphy.gif" alt="GIF 4" width="120">
+            </div>
+        </div>
+    </div>
+    <div class="return-buttons-container">
+        <button class="back-button" id="backToGrid" onclick="showThumbnails()">Voltar ao Grid</button>
+        <a href="/menu/" class="return-button">Retornar ao Menu</a>
+    </div>
+
+    <script>
+        function changeGif(gifSrc) {
+            var mainGif = document.getElementById('mainGif');
+            var thumbnails = document.querySelectorAll('.thumbnail img');
+            var backButton = document.querySelector('.back-button');
+
+            // Oculta os botões "Voltar ao Grid" e "Retornar ao Menu"
+            backButton.style.display = 'block';
+
+            // Oculta todas as miniaturas
+            for (var i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].style.display = 'none';
+            }
+
+            // Exibe a imagem principal com o src correto
+            mainGif.src = gifSrc;
+            mainGif.classList.add('show');
+        }
+
+        function showThumbnails() {
+            var mainGif = document.getElementById('mainGif');
+            var thumbnails = document.querySelectorAll('.thumbnail img');
+            var backButton = document.querySelector('.back-button');
+
+            // Oculta a imagem principal
+            mainGif.classList.remove('show');
+
+            // Exibe todas as miniaturas
+            for (var i = 0; i < thumbnails.length; i++) {
+                thumbnails[i].style.display = 'block';
+            }
+
+            // Oculta o botão "Voltar ao Grid"
+            backButton.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
