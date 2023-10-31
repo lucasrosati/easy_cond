@@ -73,13 +73,22 @@
         .return-button button:hover {
             background-color: #0056b3;
         }
+        #errorNotification {
+            background-color: #ffcccc;
+            border: 1px solid #ff0000;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Cadastro de Visitantes e Funcionários</h2>
-        <form action="/cadastro/" method="POST">
-            {% csrf_token %}                
+        <div id="errorNotification">Usuário já existe!</div>
+        <form method="post" action="{% url 'cadastro_visita' %}">
+            {% csrf_token %}
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -91,17 +100,46 @@
             <div class="form-group">
                 <p>Tipo de Usuário:</p>
                 <label>
-                    <input type="radio" name="tipo_usua" value="visitante" checked> Visitante
+                    <input type="radio" name="tipo_usuario" value="visitante" checked> Visitante
                 </label>
                 <label>
-                    <input type="radio" name="tipo_usua" value="funcionario"> Funcionário
+                    <input type="radio" name="tipo_usuario" value="funcionario"> Funcionário
                 </label>
             </div>
             <button type="submit">Cadastrar</button>
         </form>
-    </div>
+        
     <a href="/menu/" class="return-button">
         <button>Retornar ao Menu</button>
     </a>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const formulario = document.getElementById('cadastroForm');
+    formulario.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(formulario);
+        fetch('{/cadastro_visita/}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Dados salvos com sucesso", data);
+            window.location.href = '{/menu/}';
+        })
+        .catch(error => {
+            console.error("Erro ao salvar os dados", error);
+        });
+    });
+});
+    </script>
 </body>
 </html>
