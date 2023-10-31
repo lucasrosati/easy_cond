@@ -12,7 +12,7 @@ class VisitantesTest(unittest.TestCase):
 
     def test_cadastro_visita(self):
 
-        self.browser.get("file:///C:/Users/marce/OneDrive/Dokumenti/GitHub/easy_cond/easy_cond/visitas/templates/visitas/cadastro_visitas.html")
+        self.browser.get("https://appeasycond.azurewebsites.net/visitas/")
 
         nome_input = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.ID, "nome")))
         cpf_input = WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.ID, "cpf")))
