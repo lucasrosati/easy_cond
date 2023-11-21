@@ -13,3 +13,4 @@ def adicionar_funcionario_view(request):
         form = FuncionarioForm()
 
     return render(request, 'adicionar_funcionario/adicionar_funcionario.html', {'form': form})
+

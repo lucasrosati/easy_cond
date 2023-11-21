@@ -7,13 +7,14 @@ from Solicitacao import views as solicitacao_views
 from Reserva import views as reserva_views
 from visitas import views as visitas_views
 from Denuncia import views as denuncia_views
-from Cobranca import views as cobranca_views 
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
 from Login.views import pagina_de_login_view
 from cameras import views as cameras_views
 from lista_funcionarios import views as lista_views
 from adicionar_funcionario import views as adcionar_views
+from adicionar_cobranca import views as add_cobranca_views
+from lista_cobrancas import views as cobranca_views
 
 urlpatterns = [
     # Admin
@@ -42,9 +43,12 @@ urlpatterns = [
     path('cadastro_visita/', visitas_views.cadastro_visita_view, name='cadastro_visita'),
     # Tela Denuncia
     path('denuncia/', denuncia_views.fazer_denuncia, name='denuncia'),
-    # Tela Cobrança 
-    path('cobranca/', cobranca_views.cobranca_view, name='cobranca'),
+
+   
     path('verificar_usuario/', login_views.verificar_usuario, name='verificar_usuario'),
+
+
+
     # Telas cameras
     path('cameras/', cameras_views.list_cameras, name='list_cameras'),
     path('cameras/<int:camera_id>/', cameras_views.camera_detail, name='camera_detail'),
@@ -53,6 +57,10 @@ urlpatterns = [
     path('lista_funcionarios/', lista_views.lista_funcionarios_view, name='lista_funcionarios'),
     # Telas do adicionar_funcionario
     path('adicionar_funcionario/', adcionar_views.adicionar_funcionario_view, name='adicionar_funcionario'),
+    # Telas do adicionar_cobranca
+    path('adicionar_cobranca/', add_cobranca_views.adicionar_cobranca_view, name='adicionar_cobranca'),
+    # Telas do lista_cobrancas
+    path('lista_cobrancas/', cobranca_views.lista_cobrancas_view, name='lista_cobrancas'),
     
     
 ]
