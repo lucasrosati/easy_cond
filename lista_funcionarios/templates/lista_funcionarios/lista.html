@@ -1,129 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Funcionários</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Funcionários</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Define a altura da página para preencher a janela do navegador */
+            overflow: hidden; /* Impede a rolagem */
+        }
 
-    .container {
-      max-width: 600px;
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      padding: 20px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
+        .container {
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
 
-    th,
-    td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: left;
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-    th {
-      background-color: #f2f2f2;
-    }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
 
-    .return-button {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-    }
+        th {
+            background-color: #f2f2f2;
+        }
 
-    .return-button button {
-      display: block;
-      padding: 10px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        .return-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
 
-    .return-button button:hover {
-      background-color: #0056b3;
-    }
+        .return-button a {
+            display: block;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
 
-    .sort-btn {
-      position: relative;
-      display: inline-block;
-      vertical-align: middle;
-      font-size: 0.8em;
-      margin-left: 5px;
-    }
-
-    .sort-arrows {
-      display: inline-block;
-      vertical-align: middle;
-      line-height: 0;
-    }
-
-    .sort-arrow.up {
-      color: #000;
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: rotate(90deg);
-    }
-
-    .sort-arrow.down {
-      color: #ccc;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      transform: rotate(-90deg);
-    }
-  </style>
+        .return-button a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <h2>Lista de Funcionários</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Cargo</th>
-          <th>Salário</th>
-          <th class="sort-btn"><i class="sort-arrow down"></i></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>João da Silva</td>
-          <td>Gerente</td>
-          <td>R$ 10.000,00</td>
-          <td class="sort-btn"><i class="sort-arrow up"></i></td>
-        </tr>
-        <tr>
-          <td>Maria de Souza</td>
-          <td>Assistente</td>
-          <td>R$ 5.000,00</td>
-          <td class="sort-btn"><i class="sort-arrow down"></i></td>
-        </tr>
-        <tr>
-          <td>Pedro Santos</td>
-          <td>Recepcionista</td>
-          <td>R$ 3.000,00</td>
-          <td class="sort-btn"><i class="sort-arrow up"></i></td>
-        </tr>
-        <tr>
-          <td>Ana Paula
+    <div class="container">
+        <h2>Lista de Funcionários</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Contato</th>
+                    <th>Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Exemplo de linhas da tabela -->
+                <tr><td>João da Silva</td><td>Gerente</td><td>(81) 99321-3223</td><td>Diurno/Vespertino</td></tr>
+                <tr><td>Maria de Souza</td><td>Porteiro</td><td>(81) 94341-3530</td><td>Vespertino/Noturno</td></tr>
+                <!-- Outras linhas da tabela -->
+            </tbody>
+        </table>
+    </div>
+    <div class="return-button">
+        <a href="/menu/">Retornar ao Menu</a>
+    </div>
+</body>
+</html>

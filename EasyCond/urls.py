@@ -12,6 +12,8 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
 from Login.views import pagina_de_login_view
 from cameras import views as cameras_views
+from lista_funcionarios import views as lista_views
+from adicionar_funcionario import views as adcionar_views
 
 urlpatterns = [
     # Admin
@@ -47,6 +49,12 @@ urlpatterns = [
     path('cameras/', cameras_views.list_cameras, name='list_cameras'),
     path('cameras/<int:camera_id>/', cameras_views.camera_detail, name='camera_detail'),
     path('cameras/add/', cameras_views.add_camera, name='add_camera'),    
+    # Telas do lista_funcionarios
+    path('lista_funcionarios/', lista_views.lista_funcionarios_view, name='lista_funcionarios'),
+    # Telas do adicionar_funcionario
+    path('adicionar_funcionario/', adcionar_views.adicionar_funcionario_view, name='adicionar_funcionario'),
+    
+    
 ]
 
 # ... outras configurações de URL ...
