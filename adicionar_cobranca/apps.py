@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CobrancaConfig(AppConfig):
+class AdicionarCobrancaConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "Cobranca"
+    name = "adicionar_cobranca"

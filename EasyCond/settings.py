@@ -81,11 +81,12 @@ INSTALLED_APPS = [
     "Solicitacao",
     "Reserva",
     "visitas",
-    "Denuncia",
-    "Cobranca",
+    "Denuncia",   
     "cameras",
     "lista_funcionarios",
     "adicionar_funcionario",
+    "adicionar_cobranca",
+    "lista_cobrancas",
 ]
 
 MIDDLEWARE = [
