@@ -8,8 +8,8 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%; /* Define a altura da página para preencher a janela do navegador */
-            overflow: hidden; /* Impede a rolagem */
+            height: 100%;
+            overflow: hidden;
         }
 
         body {
@@ -78,10 +78,14 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Exemplo de linhas da tabela -->
-                <tr><td>João da Silva</td><td>Gerente</td><td>(81) 99321-3223</td><td>Diurno/Vespertino</td></tr>
-                <tr><td>Maria de Souza</td><td>Porteiro</td><td>(81) 94341-3530</td><td>Vespertino/Noturno</td></tr>
-                <!-- Outras linhas da tabela -->
+                {% for funcionario in funcionarios %}
+                <tr>
+                    <td>{{ funcionario.nome }}</td>
+                    <td>{{ funcionario.cargo }}</td>
+                    <td>{{ funcionario.contato }}</td>
+                    <td>{{ funcionario.horario }}</td>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
