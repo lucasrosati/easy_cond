@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     "Cobranca",
     "cameras",
     "lista_funcionarios",
+    "adicionar_funcionario",
 ]
 
 MIDDLEWARE = [
