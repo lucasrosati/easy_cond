@@ -78,6 +78,19 @@ Para contribuir com nosso projeto é simples! Você vai precisar apenas de:
 [Link da aplicação web](https://appeasycond.azurewebsites.net)
 
 
+## Entrega 4
+
+<a href="Lin do Drive">Diagrama de Atividades</a><br>
+<a href="https://drive.google.com/drive/folders/1SVCG6RjSvI9mpPgIV1TXxVMJcY4y8NFW">Issues/Bug #1</a><br>
+<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Issues/Bug #2</a><br>
+<a href="https://drive.google.com/drive/folders/1SVCG6RjSvI9mpPgIV1TXxVMJcY4y8NFW">Issues/Bug #3</a><br>
+<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Issues/Bug #4</a><br>
+<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Issues/Bug #5</a><br>
+<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Diagrama de Atividades</a><br>
+<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Diagrama de Atividades</a><br>
+<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Diagrama de Atividades</a><br>
+
+
 
 
 
