@@ -20,30 +20,60 @@ O EasyCond é uma solução inovadora para administração condominial, projetad
   <img align="center" alt="CSS" height="40" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
 </div>
 
-## Links úteis
-<div style="display: inline_block">
-    <a href="https://www.figma.com/file/R3eIX0yBsXWK7TxCEHlv7U/EasyCond?type=design&node-id=0-1&mode=design&t=EIai6aR4J6FDKP8B-0" target="_blank">
-        <img align="center" alt="Figma" height="40" width="50" src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
-    </a>
-</div>
 
+Claro, aqui está uma versão revisada e simplificada das instruções para a seção de configuração do ambiente de desenvolvimento em um arquivo `CONTRIBUTING.md`:
 
-## Instruções de como montar o ambiente
+---
 
-Instruções de como montar o ambiente
-Para contribuir com nosso projeto é simples! Você vai precisar apenas de:
-1) Ter o python instalado em seu computador
-2) Uma IDE de sua escolha (recomendamos o VS code)
-3) Alguma ferramenta de versionamento (recomendamos o git bash)
-4) Faça um clone de nosso repositorio usando "git clone https://github.com/lucasrosati/easy_cond.git"
-5) Com o VScode abra o projeto
-6) Digite o comando "python -m venv venv" no terminal (Ctrl + ') para criar seu ambiente virtual ele será importante para instalarmos todas as dependências necessárias para o     
-   projeto
-7) Repare que foi criada uma pasta chamada venv no seu diretorio
-8) Ative seu ambiente virtual com o comando ./venv/Scripts/Activate
-9) Agora vamos instalar todas as dependências com o comando "pip install -r projeto_easy_cond/requirements.txt"
-   Com isso seu ambiente estará pronto para começar a desenvolver com o django!
+## Configurando o Ambiente para Contribuição
 
+Este guia o ajudará a configurar rapidamente o ambiente necessário para começar a contribuir com nosso projeto. Siga as etapas abaixo:
+
+### Pré-Requisitos
+
+Antes de começar, você precisará:
+
+- **Python**: Certifique-se de ter o Python instalado. Se não, [baixe e instale](https://www.python.org/downloads/).
+- **IDE**: Recomendamos o [Visual Studio Code (VS Code)](https://code.visualstudio.com/), mas sinta-se livre para usar qualquer IDE de sua escolha.
+- **Versionamento**: Uma ferramenta de versionamento é essencial. Recomendamos o [Git Bash](https://git-scm.com/downloads).
+
+### Configuração
+
+1. **Clone o Repositório**:
+   - Abra seu terminal e execute:
+     ```
+     git clone https://github.com/lucasrosati/easy_cond.git
+     ```
+
+2. **Abra o Projeto**:
+   - Use o VS Code ou sua IDE preferida para abrir a pasta do projeto clonado.
+
+3. **Ambiente Virtual**:
+   - No terminal da IDE, crie um ambiente virtual:
+     ```
+     python -m venv venv
+     ```
+   - Isso cria uma pasta `venv` no seu diretório.
+
+4. **Ativação do Ambiente Virtual**:
+   - Ative o ambiente virtual com:
+     ```
+     ./venv/Scripts/Activate
+     ```
+
+5. **Instalação de Dependências**:
+   - Instale as dependências necessárias:
+     ```
+     pip install -r projeto_easy_cond/requirements.txt
+     ```
+
+### Pronto para Contribuir!
+
+Com estas etapas, seu ambiente está configurado e pronto para contribuir com o projeto. Se tiver alguma dúvida ou enfrentar problemas, não hesite em nos contatar.
+
+---
+
+Este formato é claro, objetivo e fácil de seguir, garantindo que contribuidores de diferentes níveis de experiência possam configurar o ambiente de desenvolvimento sem problemas.
 ## Entrega 1
 
 
