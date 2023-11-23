@@ -80,16 +80,19 @@ Para contribuir com nosso projeto é simples! Você vai precisar apenas de:
 
 ## Entrega 4
 
-<a href="Lin do Drive">Diagrama de Atividades</a><br>
-<a href="https://drive.google.com/drive/folders/1SVCG6RjSvI9mpPgIV1TXxVMJcY4y8NFW">Issues/Bug #1</a><br>
-<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Issues/Bug #2</a><br>
-<a href="https://drive.google.com/drive/folders/1SVCG6RjSvI9mpPgIV1TXxVMJcY4y8NFW">Issues/Bug #3</a><br>
-<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Issues/Bug #4</a><br>
-<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Issues/Bug #5</a><br>
-<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Diagrama de Atividades</a><br>
-<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Diagrama de Atividades</a><br>
-<a href="https://drive.google.com/drive/folders/1f92t-qF7ZGuNyL3-h5Eicc11mh1M3Oq8?usp=drive_link">Diagrama de Atividades</a><br>
-
+<a href="Link do Drive">Diagrama de Atividades</a><br>
+<a href="https://drive.google.com/file/d/1bG-c5uMwi7Qb4UE0fD629pVOYh1rUbBP/view?usp=drive_link">Issues/Bug #1</a><br>
+<a href="https://drive.google.com/file/d/1JxKvLrY40cEi9ShkVMivm_zdAY4kk8sH/view?usp=drive_link">Issues/Bug #2</a><br>
+<a href="https://drive.google.com/file/d/17XOSc_Qa5DcYX_rpPzXI2_g_aYyD5BGo/view?usp=drive_link">Issues/Bug #3</a><br>
+<a href="https://drive.google.com/file/d/1TrZogLMkEcpX6y1KWZhx32ziWBOXRHUb/view?usp=drive_link">Issues/Bug #4</a><br>
+<a href="https://drive.google.com/file/d/1ZRVkxAZoImUWSPRyYT48E73-2fCE782n/view?usp=drive_link">Issues/Bug #5</a><br>
+<a href="https://drive.google.com/file/d/1p5VRbWxLMml7fl1PuXpM_8Totj4JLpv_/view?usp=drive_link">Screencast - Protótipo Lo-Fi Figma atualizado</a><br>
+<a href="https://drive.google.com/file/d/135d3oU7fMhkM3IKIh4tWRrDPOG-FY8fl/view?usp=drive_link">Screencast - Novas Histórias</a><br>
+<a href="Link do Drive">Screencast - Build e Deployment</a><br>
+<a href="Link do Drive">Screencast - Execução de testes E2E</a><br>
+<a href="https://drive.google.com/file/d/1w87lZo2NfsrlrVJltR66fV95W6NifOEp/view?usp=drive_link">Quadro da 4ª Sprint Jira</a><br>
+<a href="https://docs.google.com/document/d/1XzwrVShiVB3Kfcz932qQTVFRNU7MG2H4IT5FI1T2JB8/edit?usp=drive_link">Programação em Par experimentada e usado</a><br>
+[Link da aplicação web](https://appeasycond.azurewebsites.net)
 
 
 
