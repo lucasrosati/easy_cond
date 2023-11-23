@@ -21,62 +21,6 @@ O EasyCond é uma solução inovadora para administração condominial, projetad
 </div>
 
 
-Claro, aqui está uma versão revisada e simplificada das instruções para a seção de configuração do ambiente de desenvolvimento em um arquivo `CONTRIBUTING.md`:
-
----
-
-## Configurando o Ambiente para Contribuição
-
-Este guia o ajudará a configurar rapidamente o ambiente necessário para começar a contribuir com nosso projeto. Siga as etapas abaixo:
-
-### Pré-Requisitos
-
-Antes de começar, você precisará:
-
-- **Python**: Certifique-se de ter o Python instalado. Se não, [baixe e instale](https://www.python.org/downloads/).
-- **IDE**: Recomendamos o [Visual Studio Code (VS Code)](https://code.visualstudio.com/), mas sinta-se livre para usar qualquer IDE de sua escolha.
-- **Versionamento**: Uma ferramenta de versionamento é essencial. Recomendamos o [Git Bash](https://git-scm.com/downloads).
-
-### Configuração
-
-1. **Clone o Repositório**:
-   - Abra seu terminal e execute:
-     ```
-     git clone https://github.com/lucasrosati/easy_cond.git
-     ```
-
-2. **Abra o Projeto**:
-   - Use o VS Code ou sua IDE preferida para abrir a pasta do projeto clonado.
-
-3. **Ambiente Virtual**:
-   - No terminal da IDE, crie um ambiente virtual:
-     ```
-     python -m venv venv
-     ```
-   - Isso cria uma pasta `venv` no seu diretório.
-
-4. **Ativação do Ambiente Virtual**:
-   - Ative o ambiente virtual com:
-     ```
-     ./venv/Scripts/Activate
-     ```
-
-5. **Instalação de Dependências**:
-   - Instale as dependências necessárias:
-     ```
-     pip install -r projeto_easy_cond/requirements.txt
-     ```
-
-### Pronto para Contribuir!
-
-Com estas etapas, seu ambiente está configurado e pronto para contribuir com o projeto. Se tiver alguma dúvida ou enfrentar problemas, não hesite em nos contatar.
-
----
-
-Este formato é claro, objetivo e fácil de seguir, garantindo que contribuidores de diferentes níveis de experiência possam configurar o ambiente de desenvolvimento sem problemas.
-## Entrega 1
-
-
 <a href="https://drive.google.com/file/d/1wguMgEA1N7J6cWv_RcZV7zZKOQn8WWU2/view?usp=sharing">Screencast - Protótipo LO-FI FIGMA</a><br>
 <a href="https://www.figma.com/file/R3eIX0yBsXWK7TxCEHlv7U/EasyCond?type=design&node-id=0-1&mode=design&t=EIai6aR4J6FDKP8B-0">Sketches e Storyboards no Figma</a><br>
 <a href="https://drive.google.com/file/d/1NkPBY2j3FBnMNQhGgazxkgastrR4ckvt/view?usp=drive_link">Backlog do JIRA</a><br>
@@ -125,7 +69,48 @@ Este formato é claro, objetivo e fácil de seguir, garantindo que contribuidore
 [Link da aplicação web](https://appeasycond.azurewebsites.net)
 
 
+## Configurando o Ambiente para Contribuição
 
+Este guia o ajudará a configurar rapidamente o ambiente necessário para começar a contribuir com nosso projeto. Siga as etapas abaixo:
 
+### Pré-Requisitos
 
+Antes de começar, você precisará:
 
+- **Python**: Certifique-se de ter o Python instalado. Se não, [baixe e instale](https://www.python.org/downloads/).
+- **IDE**: Recomendamos o [Visual Studio Code (VS Code)](https://code.visualstudio.com/), mas sinta-se livre para usar qualquer IDE de sua escolha.
+- **Versionamento**: Uma ferramenta de versionamento é essencial. Recomendamos o [Git Bash](https://git-scm.com/downloads).
+
+### Configuração
+
+1. **Clone o Repositório**:
+   - Na sua IDE selecionada abra seu terminal e execute:
+     ```
+     git clone https://github.com/lucasrosati/easy_cond.git
+     ```
+
+2. **Abra o Projeto**:
+   - Abra a pasta em que você clonou o repositório.
+
+3. **Ambiente Virtual**:
+   - No terminal da IDE, crie um ambiente virtual:
+     ```
+     python -m venv venv
+     ```
+   - Isso cria uma pasta `venv` no seu diretório.
+
+4. **Ativação do Ambiente Virtual**:
+   - Ative o ambiente virtual com:
+     ```
+     ./venv/Scripts/Activate
+     ```
+
+5. **Instalação de Dependências**:
+   - Instale as dependências necessárias:
+     ```
+     pip install -r easy_cond/requirements.txt
+     ```
+
+### Pronto para Contribuir!
+
+Com estas etapas, seu ambiente está configurado e pronto para contribuir com o projeto. Se tiver alguma dúvida ou enfrentar problemas, não hesite em nos contatar.
