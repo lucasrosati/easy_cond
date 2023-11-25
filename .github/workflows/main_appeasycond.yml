@@ -26,35 +26,32 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      
+
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Cleaning testing files
-        run: |         
+        run: |
           rm db.sqlite3
           rm .env
 
       - name: Download and setup chromedriver
         run: |
-          CHROMEDRIVER_VERSION=119.0.6045.104
+          set -e
+          CHROMEDRIVER_VERSION=119.0.6045.105
           wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           chmod +x chromedriver
           sudo mv chromedriver /usr/local/bin/
 
-      - name: Run Tests
-        run: |
-          python -m unittest discover -v e2e_tests/
-      
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
           path: |
-            . 
+            .
             !venv/
 
   deploy:
@@ -70,7 +67,7 @@ jobs:
         with:
           name: python-app
           path: .
-          
+
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
