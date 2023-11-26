@@ -36,7 +36,7 @@ jobs:
           source venv/bin/activate
           
           # Navegar até o diretório dos testes e executar o script de teste
-          /e2e_tests
+          cd easy_cond/e2e_tests 
           python selenium_tests.py
 
       - name: Cleaning testing files
