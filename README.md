@@ -62,8 +62,8 @@ O EasyCond é uma solução inovadora para administração condominial, projetad
 <a href="https://drive.google.com/file/d/1ZRVkxAZoImUWSPRyYT48E73-2fCE782n/view?usp=drive_link">Issues/Bug #5</a><br>
 <a href="https://drive.google.com/file/d/1p5VRbWxLMml7fl1PuXpM_8Totj4JLpv_/view?usp=drive_link">Screencast - Protótipo Lo-Fi Figma atualizado</a><br>
 <a href="https://drive.google.com/file/d/135d3oU7fMhkM3IKIh4tWRrDPOG-FY8fl/view?usp=drive_link">Screencast - Novas Histórias</a><br>
-<a href="Link do Drive">Screencast - Build e Deployment</a><br> add
-<a href="Link do Drive">Screencast - Execução de testes E2E</a><br> add
+<a href="https://drive.google.com/file/d/1jcRDydmVnucQm42GoHY3HNSxufS25Bnk/view?usp=drive_link">Screencast - Build e Deployment</a><br>
+<a href="Link do Drive">Screencast - Execução de testes E2E</a><br>
 <a href="https://drive.google.com/file/d/1w87lZo2NfsrlrVJltR66fV95W6NifOEp/view?usp=drive_link">Quadro da 4ª Sprint Jira</a><br>
 <a href="https://docs.google.com/document/d/1XzwrVShiVB3Kfcz932qQTVFRNU7MG2H4IT5FI1T2JB8/edit?usp=drive_link">Programação em Par experimentada e usado</a><br>
 [Link da aplicação web](https://appeasycond.azurewebsites.net)
