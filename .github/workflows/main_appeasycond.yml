@@ -30,7 +30,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+      - name: Run Selenium tests
+        run: |
+          # Ativar o ambiente virtual, se necessário
+          source venv/bin/activate
+          
+          # Navegar até o diretório dos testes e executar o script de teste
+          cd easy_cond/e2e_tests
+          python selenium_tests.py
 
       - name: Cleaning testing files
         run: |
