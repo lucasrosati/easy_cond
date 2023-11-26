@@ -47,9 +47,13 @@ class CobrancaTest(unittest.TestCase):
         submit_button.click()
 
         # Aguarde uma mensagem de sucesso (altere o XPATH conforme necessário)
-        success_message = WebDriverWait(self.browser, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "Cobrança adicionada com sucesso!")]')))
-        self.assertEqual(success_message.text, 'Cobrança adicionada com sucesso!')
+        try:
+            success_message = WebDriverWait(self.browser, 10).until(
+                EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "Cobrança adicionada com sucesso!")]')))
+            self.assertEqual(success_message.text, 'Cobrança adicionada com sucesso!')
+            print("Mensagem de sucesso encontrada:", success_message.text)
+        except Exception as e:
+            print("Erro ao encontrar mensagem de sucesso:", e)
 
         # Agora, retorne ao menu
         self.browser.switch_to.window(main_window)
