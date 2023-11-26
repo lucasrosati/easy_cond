@@ -30,8 +30,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-
+      - name: Run tests
+        run: |
+          source venv/bin/activate
+          python -m unittest discover -v
+          
       - name: Cleaning testing files
         run: |         
           rm db.sqlite3
@@ -65,18 +68,13 @@ jobs:
           sudo apt-get install -y wget unzip
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo dpkg -i google-chrome-stable_current_amd64.deb
-          wget https://chromedriver.storage.googleapis.com/latest/chromedriver_linux64.zip
+          CHROMEDRIVER_VERSION=119.0.6045.104
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
           sudo chmod +x /usr/local/bin/chromedriver
           google-chrome-stable --version
           chromedriver --version
-
-      - name: Activate virtual environment and run tests
-        run: |
-          source venv/bin/activate
-          cd easy_cond/e2e_tests
-          python -m unittest discover -v
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
