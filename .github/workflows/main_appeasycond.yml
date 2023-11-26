@@ -38,6 +38,9 @@ jobs:
 
       - name: Rodar testes do Django
         run: |
+          export DISPLAY=:99
+          /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+          sleep 3  # Esperar pelo Xvfb iniciar
           python -m unittest discover -v
 
       - name: Limpar
