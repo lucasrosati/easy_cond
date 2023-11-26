@@ -26,39 +26,23 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Run Selenium tests
-        run: |
-          # Ativar o ambiente virtual, se necessário
-          source venv/bin/activate
-          
-          # Navegar até o diretório dos testes e executar o script de teste
-          cd easy_cond/e2e_tests 
-          python selenium_tests.py
+        
+      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Cleaning testing files
-        run: |
+        run: |         
           rm db.sqlite3
-          rm .env
-
-      - name: Download and setup chromedriver
-        run: |
-          set -e
-          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          chmod +x chromedriver
-          sudo mv chromedriver /usr/local/bin/
-
+          rm .env          
+      
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
           path: |
-            .
+            . 
             !venv/
 
   deploy:
@@ -74,7 +58,7 @@ jobs:
         with:
           name: python-app
           path: .
-
+          
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
@@ -82,3 +66,16 @@ jobs:
           app-name: 'appeasycond'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CF01664E481249B6A8A451A45BC3078B }}
+
+      # Ativar o ambiente virtual, se necessário
+      - name: Activate virtual environment
+        run: source venv/bin/activate
+
+      # Navegar até o diretório dos testes e executar todos os scripts de teste
+      - name: Run end-to-end tests
+        run: |
+          cd easy_cond/e2e_tests
+          python -m unittest discover -v
+          
+env:
+  pythonLocation: /opt/hostedtoolcache/Python/3.11.6/x64
