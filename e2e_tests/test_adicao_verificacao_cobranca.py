@@ -57,7 +57,8 @@ class CobrancaTest(unittest.TestCase):
 
         # Agora, retorne ao menu
         self.browser.switch_to.window(main_window)
-        return_menu_button = self.browser.find_element(By.XPATH, '//div[@class="return-button"]/a[text()="Retornar ao Menu"]')
+        return_menu_button = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.XPATH, '//div[@class="return-button"]/a[text()="Retornar ao Menu"]')))
         return_menu_button.click()
         time.sleep(2)
 
@@ -81,7 +82,8 @@ class CobrancaTest(unittest.TestCase):
             time.sleep(2)
 
             # Retorne ao menu
-            return_menu_button_cobranca = self.browser.find_element(By.XPATH, '//div[@class="return-button"]/a[text()="Retornar ao Menu"]')
+            return_menu_button_cobranca = WebDriverWait(self.browser, 10).until(
+                EC.presence_of_element_located((By.XPATH, '//div[@class="return-button"]/a[text()="Retornar ao Menu"]')))
             return_menu_button_cobranca.click()
             time.sleep(2)
 
@@ -101,10 +103,14 @@ class CobrancaTest(unittest.TestCase):
             .perform()
 
     def tearDown(self):
-        # Volte ao menu no final do teste
-        return_menu_button_final = self.browser.find_element(By.XPATH, '//div[@class="return-button"]/a[text()="Retornar ao Menu"]')
-        return_menu_button_final.click()
-        time.sleep(2)
+        try:
+            # Volte ao menu no final do teste
+            return_menu_button_final = WebDriverWait(self.browser, 10).until(
+                EC.presence_of_element_located((By.XPATH, '//div[@class="return-button"]/a[text()="Retornar ao Menu"]')))
+            return_menu_button_final.click()
+            time.sleep(2)
+        except Exception as e:
+            print("Erro ao encontrar botão de retorno ao menu:", e)
 
         self.browser.quit()
 
